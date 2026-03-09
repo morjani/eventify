@@ -2,18 +2,21 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Webhooks\ShopifyWebhookController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthController; 
+use App\Http\Controllers\UserController;
+
 
 
 /*Route::post('/webhooks/shopify/orders', [ShopifyWebhookController::class, 'orderCreated'])->name('orderCreated');*/
-
+Route::post('/ajax/store-user', [UserController::class, 'store'])->name('user.store');
+Route::get('/',[FrontController::class,'create'])->name('index');
 
 Route::middleware('auth')->group(function () {
 
@@ -22,10 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['auth', 'role:admin,order_confirmation'])->group(function () {
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name(name: 'profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
         Route::get('/product/categories',[CategoryController::class,'index'])->name('categories');
         Route::get('/ajax/dt-categories',[CategoryController::class,'dtCategories'])->name('dt-categories');
