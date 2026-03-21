@@ -1,5 +1,5 @@
 
-     <footer class="footer-bg">
+     <!--<footer class="footer-bg">
             <div class="container">
                <div class="landing-center ptb50">
                   <div class="feature-content">
@@ -19,5 +19,5 @@
                 
                </div>
             </div>
-         </footer>
+         </footer>-->
    

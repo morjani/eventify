@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Services\Log\LoggerService;
 
+
 class ProductController extends RootController
 {
     /**
@@ -48,33 +49,9 @@ class ProductController extends RootController
             // Datatable processing (pagination, search, ordering)
             $result = $this->DoDatatable($query, $request, function ($i, $row) {
 
+
                 //image
-                $imageUrl = $row->path
-                    ? asset('uploads/' . $row->path)
-                    : asset('assets/images/no-image.png'); // fallback
-
-                $row->image = '<div class="product-names">
-                  <div class="light-product-box">
-                      <img class="img-fluid" src="'.$imageUrl.'" alt="'.htmlspecialchars($row->name).'">
-                  </div>
-                </div>';
-
-                // Actions column (edit / delete buttons)
-                $row->actions = '<div class="btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Actions
-                        </button>
-                        <ul class="dropdown-menu" style="">
-                          <li>
-                          <a class="dropdown-item" href="JavaScript:void(0)" data-action="edit-product"
-                          data-id="'.$row->id.'">Edit</a>
-                          </li>
-                          <li>
-                          <a class="dropdown-item" href="JavaScript:void(0)" data-action="delete-product"
-                          data-id="'.$row->id.'">Delete</a>
-                          </li>
-                        </ul>
-                      </div>';
+                
             });
 
             return response()->json($result);

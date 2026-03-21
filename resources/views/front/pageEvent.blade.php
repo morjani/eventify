@@ -1,9 +1,9 @@
-<div class="page-body" id="page-participant">
+<div class="page-body" id="page-event">
     <div class="container-fluid">
         <div class="page-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>Products List </h3>
+                    <h3>Participant List </h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb">
@@ -14,8 +14,8 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="breadcrumb-item">Product</li>
-                        <li class="breadcrumb-item active">Product List</li>
+                        <li class="breadcrumb-item">Participant</li>
+                        <li class="breadcrumb-item active">Participant List</li>
                     </ol>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <div class="card-header-right-icon">
                             <a class="btn btn-primary f-w-500" href="JavaScript:void(0)" data-action="new-product">
                                 <i class="fa fa-plus pe-2"></i>
-                                Add Product
+                                Add Participant
                             </a>
                         </div>
                     </div>
@@ -39,18 +39,17 @@
                             <div class="col-12">
                                 <div class="order-history-wrapper">
                                     <div class="recent-table table-responsive custom-scrollbar">
-                                        <table class="table dataTable" id="table-product">
+                                        <table class="table dataTable" id="table-event">
                                             <thead>
                                             <tr>
-                                                <th></th>
-                                                <th> <span class="f-light f-w-600">Product</span></th>
-                                                <th> <span class="f-light f-w-600">Category</span></th>
-                                                <th> <span class="f-light f-w-600">SKU</span></th>
-                                                <th> <span class="f-light f-w-600">Price</span></th>
-                                                <th> <span class="f-light f-w-600">Quantity</span></th>
-                                                <th> <span class="f-light f-w-600">Created by</span></th>
-                                                <th> <span class="f-light f-w-600">Last update</span></th>
-                                                <th> <span class="f-light f-w-600">Actions</span></th>
+                                               
+                                                <th> <span class="f-light f-w-600">Demandeur</span></th>
+                                                <th> <span class="f-light f-w-600">Demande</span></th>
+                                                <th> <span class="f-light f-w-600">Date</span></th>
+                                                <th> <span class="f-light f-w-600">Heure</span></th>
+                                                <th> <span class="f-light f-w-600">Status</span></th>
+                                                <th> <span class="f-light f-w-600">Action</span></th>
+                                               
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -68,3 +67,5 @@
     </div>
     <!-- Container-fluid Ends-->
 </div>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/js/PageEvent.js') }}"></script>

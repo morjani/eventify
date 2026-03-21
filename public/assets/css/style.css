@@ -112547,14 +112547,7 @@ body[class*="dark-"] .for-dark {
 body[class*="dark-"] .for-light {
     display: none;
 }
-.form-background{
-        background: url("images/aaaaaaaa.jpg");
-        height:800px
-}
-.h{
-    background: url("images/6757c1967376826.jpg");
-        height:80px
-}
+
 .bt{
     position:relative;
     left:1200px;

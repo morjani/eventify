@@ -19,17 +19,20 @@ class UserController extends Controller
                 'id_pays' => 'required|exists:pays,id',                                
                 'ville'=>'required|string|min:3|max:60',
                 'email' => 'required|email|max:255|unique:users,email',
-                'password'=>'required|string|min:3|max:255'
+                'password'=>'required|string|min:3|max:255|confirmed',
+                
             ]);
             $user = Users::create(
                 [
                     'last_name'    => $validated['last_name'],
                     'first_name' => $validated['first_name'],
-                    'name'    => 'testtesttt',
+                    'name'    => $validated['last_name'],
+                    'role_id'    => 2,
                     'id_pays'     => $validated['id_pays'],
                     'ville'     => $validated['ville'],
                     'email'     => $validated['email'],
-                    'password' => Hash::make($validated['password']) 
+                    'password' => Hash::make($validated['password']),
+
                 ]);
                 return response()->json([
                     'success' => true,
@@ -53,38 +56,7 @@ class UserController extends Controller
     }
 }
 
-/*
-try{
-
- // Validate request
-            $validated = $request->validate([
-                'pays_id' => 'required|exists:pays,id',
-                'name'        => 'required|string|min:3|max:255',
-                'description' => 'nullable|string',
-            ]);
 
 
 
 
-
-             // Return success response
-            return response()->json([
-                'success' => true,
-                'message' => 'User saved successfully'
-            ]);
-}
-
- } catch (ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'errors'  => $e->errors(),
-            ], 422);
-
-        } catch (\Throwable $e) {
-            logger()->error('Store category error', ['message' => $e->getMessage()]);
-            return response()->json([
-                'success' => false,
-                'message' => 'Something went wrong, please try again',
-            ], 500);
-        }
-*/

@@ -43,13 +43,13 @@
       <link href="../assets/css/color-5.css" rel="stylesheet">
       <link href="../assets/css/color-6.css" rel="stylesheet">
       <link href="../assets/css/responsive.css" rel="stylesheet">
-      <link href="../assets/css/style.css" rel="stylesheet">
+      <link href="/public/assets/css/style.css" rel="stylesheet">
    </head>
 <body>
     
-               <div class="h">
+               <div class="he">
                   <div class="bt">
-                     <button class="btn btn-primary " type="submit">Creer compte</button>
+                     <!--<button class="btn btn-primary " type="submit">Creer compte</button>-->
                   </div>
                </div>
            

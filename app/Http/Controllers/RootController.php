@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\Log;
 
 class RootController extends Controller
 {
@@ -18,59 +19,49 @@ class RootController extends Controller
     }
     public function DoDatatable($query,$request,$callback = null){
 
-        $callback = $callback ?: function () {};
+    $callback = $callback ?: function () {};
 
-        $length = $request->get('length') ?: 10;
+    $length = $request->get('length') ?: 10;
+    $offset = $request->get('start') ?: 0;
 
-        $offset=$request->get('start') ?: 0;
+    $orderColumnIndex = intval($request->get('order')[0]['column']);
+    $orderColumn = $request->get('columns')[$orderColumnIndex]['name'] ?? 'id';
+    $dir = $request->get('order')[0]['dir'] ?? 'desc';
 
-        $order = $request->get('columns')[intval($request->get('order')[0]['column'])]['name'];
+    $search = addslashes($request->get('search')['value'] ?? '');
 
-        $dir = $request->get('order')[0]['dir'];
-
-        $search = $request->get('search')['value'] ?: '';
-
-        $sfilter = '';
-
-        foreach ($request->get('columns') as $col) {
-
-            $col = (object)$col;
-
-            if ($col->searchable === "false") continue;
-
-            $sfilter .= ($sfilter ? ' OR ' : ' ') . "{$col->name} like '%$search%' ";
-
-
-        }
-
-        $query_str = "SELECT * FROM ($query) t WHERE 1=1 AND $sfilter";
-
-        $query = DB::select($query_str . " ORDER BY $order $dir LIMIT $length offset $offset");
-
-        $totals = DB::select("SELECT COUNT(*) total FROM ($query_str) t");
-
-        foreach ($query as $i => $row) {
-
-
-            $callback($i, $row, $query);
-
-        }
-
-        $return = array(
-
-            'draw' => $request->get('draw') ?: 0,
-
-            'recordsTotal' => count($totals),
-
-            'recordsFiltered' => count($query),
-
-            'data' => $query,
-
-        );
-
-        return ((object)$return);
-
+    // بناء فلتر البحث
+    $sfilter = '';
+    foreach ($request->get('columns') as $col) {
+        $col = (object)$col;
+        if ($col->searchable === "false") continue;
+        $sfilter .= ($sfilter ? ' OR ' : ' ') . "{$col->name} LIKE '%$search%'";
     }
+
+    $query_str = "SELECT * FROM ($query) t WHERE 1=1" . ($sfilter ? " AND ($sfilter)" : "");
+
+    // جلب البيانات مع pagination
+    $queryResult = DB::select($query_str . " ORDER BY $orderColumn $dir LIMIT $length OFFSET $offset");
+
+    // جلب العدد الكلي
+    $totalResult = DB::select("SELECT COUNT(*) as total FROM ($query) t");
+    $recordsTotal = $totalResult[0]->total;
+
+    // تطبيق callback
+    foreach ($queryResult as $i => $row) {
+        $callback($i, $row, $queryResult);
+    }
+
+    // تحويل objects إلى arrays
+    $data = array_map(function($row){ return (array)$row; }, $queryResult);
+
+    return (object)[
+        'draw' => $request->get('draw') ?: 0,
+        'recordsTotal' => $recordsTotal,
+        'recordsFiltered' => $recordsTotal,
+        'data' => $data,
+    ];
+}
 
     public function generateNumber()
     {

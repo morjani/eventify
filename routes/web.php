@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Webhooks\ShopifyWebhookController;
@@ -11,12 +12,18 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AuthController; 
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\PrendreController;
 
 
 /*Route::post('/webhooks/shopify/orders', [ShopifyWebhookController::class, 'orderCreated'])->name('orderCreated');*/
+Route::get('/pageEvent',[EventController::class,'index'])->name('pageEvent.index');
+Route::get('/ajax/page-event',[EventController::class,'PageEvent'])->name('page-event');
+Route::get('/ajax/dt-prendre',[PrendreController::class,'dtPrendre'])->name('dt-prendre');
+Route::post('/ajax/Rndv',[PrendreController::class,'store'])->name('Rndv');
 Route::post('/ajax/store-user', [UserController::class, 'store'])->name('user.store');
 Route::get('/',[FrontController::class,'create'])->name('index');
+Route::get('/prendre',[PrendreController::class,'index'])->name('prendre.index');
+Route::get('/ajax/prendre-rdv',[PrendreController::class,'prendreRdv'])->name('prendre.rdv');
 
 Route::middleware('auth')->group(function () {
 
