@@ -30,31 +30,18 @@
       <!-- Responsive css-->
       <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
       <script defer src="../assets/css/color-1.js"></script>
-      <script defer src="../assets/css/color-2.js"></script>
-      <script defer src="../assets/css/color-3.js"></script>
-      <script defer src="../assets/css/color-4.js"></script>
-      <script defer src="../assets/css/color-5.js"></script>
-      <script defer src="../assets/css/color-6.js"></script>
       <script defer src="../assets/css/responsive.js"></script>
       <script defer src="../assets/css/style.js"></script>
       <link href="../assets/css/color-1.css" rel="stylesheet">
-      <link href="../assets/css/color-2.css" rel="stylesheet">
-      <link href="../assets/css/color-3.css" rel="stylesheet">
-      <link href="../assets/css/color-4.css" rel="stylesheet">
-      <link href="../assets/css/color-5.css" rel="stylesheet">
-      <link href="../assets/css/color-6.css" rel="stylesheet">
       <link href="../assets/css/responsive.css" rel="stylesheet">
-      <link href="/public/assets/css/style.css" rel="stylesheet">
 </head>
 
-   <body>
-      
-      
+   <body class="form-index">
       <!-- login page start-->
       <div class="container-fluid p-0">
       <div class="row m-0">
       <div class="col-xl-5">
-         <!--<img class="bg-img-cover bg-center" src="../assets/images/login/login_bg.jpg" alt="looginpage">-->
+         
       </div>
       <div class="col-xl-7 p-0">
       <div class="login-card login-dark">
