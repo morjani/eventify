@@ -21,53 +21,38 @@
                         </div>
                     </li>
 
-                    @if(auth()->user()->hasRole('admin', 'order_confirmation','order_handler'))
+                    @if(auth()->user()->hasRole('admin', 'participant'))
 
-                        <li class="sidebar-list {{ request()->routeIs('orders') ? 'active' : '' }}">
+                        <li class="sidebar-list {{ request()->routeIs('rdv.index') ? 'active' : '' }}">
                             <i class="fa-solid fa-thumbtack"></i>
-                            <a class="sidebar-link sidebar-title link-nav {{ request()->routeIs('orders') ? 'active' : '' }}"
-                               href="{{ route('orders') }}">
+                            <a class="sidebar-link sidebar-title link-nav {{ request()->routeIs('rdv.index') ? 'active' : '' }}"
+                               href="{{ route('rdv.index') }}">
                                 <svg class="stroke-icon">
-                                    <use href="../assets/svg/icon-sprite.svg#stroke-ecommerce"></use>
+                                    <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-reports') }}"></use>
                                 </svg>
                                 <svg class="fill-icon">
-                                    <use href="../assets/svg/icon-sprite.svg#fill-file"></use>
+                                    <use href="{{ asset('assets/svg/icon-sprite.svg#fill-reports') }}"></use>
                                 </svg>
-                                <span>Orders</span>
+                                <span>Rendez-vous</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-list {{ request()->routeIs('participant.index') ? 'active' : '' }}">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            <a class="sidebar-link sidebar-title link-nav {{ request()->routeIs('participant.index') ? 'active' : '' }}"
+                               href="{{ route('participant.index') }}">
+                                <svg class="stroke-icon">
+                                    <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-user') }}"></use>
+                                </svg>
+                                <svg class="fill-icon">
+                                    <use href="{{ asset('assets/svg/icon-sprite.svg#fill-user') }}"></use>
+                                </svg>
+                                <span>Liste des participants</span>
                             </a>
                         </li>
 
                     @endif
 
-                    @if(auth()->user()->hasRole('admin', 'order_confirmation'))
-
-                        <li class="sidebar-list">
-                            <i class="fa-solid fa-thumbtack"> </i>
-                            <a class="sidebar-link sidebar-title {{ request()->routeIs('categories') ? 'active' : '' }}" href="#">
-                                <svg class="stroke-icon">
-                                    <use href="../assets/svg/icon-sprite.svg#stroke-board"></use>
-                                </svg>
-                                <svg class="fill-icon">
-                                    <use href="../assets/svg/icon-sprite.svg#fill-project"></use>
-                                </svg>
-                                <span>Products
-                                </span>
-                            </a>
-                            <ul class="sidebar-submenu" style="display: block">
-                                <li>
-                                    <a href="{{ route('products') }}" class="{{ request()->routeIs('products') ? 'active' : '' }}">
-                                        Products
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('categories') }}" class="{{ request()->routeIs('categories') ? 'active' : '' }}">
-                                        Categories
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    @endif
 
                 </ul>
             </div>

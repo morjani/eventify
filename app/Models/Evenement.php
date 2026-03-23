@@ -8,4 +8,5 @@ class Evenement extends Model
 {
     protected $table = 'evenements';
    protected $fillable = ['id_event','nom','date','description','inscription_ouverte'];
+   protected $primaryKey = 'id_event';
 }

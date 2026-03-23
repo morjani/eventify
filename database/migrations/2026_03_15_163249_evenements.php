@@ -16,7 +16,7 @@ return new class extends Migration
                 $table->string('nom');
                 $table->date('date');
                 $table->text('description');
-                $table->integer('inscription_ouverte');
+                $table->integer('inscription_ouverte');//0 ou 1
                 $table->timestamps();
         });
     }

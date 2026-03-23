@@ -40,12 +40,12 @@ $(function () {
                 searchable : true,
             },
             {
-                title : 'numéro téléphone',
+                title : 'Numéro téléphone',
                 name  : 'phone',
                 data  : 'phone',
                 render: null,
-                orderable : false,
-                searchable : false,
+                orderable : true,
+                searchable : true,
             },
           
             {
@@ -58,7 +58,7 @@ $(function () {
 
             },
         ], {
-            ajax    : "/ajax/dt-prendre",
+            ajax    : "/ajax/dt-participants",
             order           : [[1, 'desc']],
 
         }, undefined);
@@ -87,7 +87,33 @@ $(function () {
             show_header     : true,
             show_footer     : true,
             post_data       : {'participant_id' : participantId},
-            onLoad          : function(){},
+            onLoad          : function(){
+                // Charger les heures disponibles
+                $.ajax({
+                    url: '/ajax/available-hours/' + participantId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(res) {
+                        if (res.success && res.data) {
+                            let houreSelect = $('#heure');
+                            houreSelect.empty();
+                            houreSelect.append('<option value="">Choisir l\'heure</option>');
+                            
+                            $.each(res.data, function(key, label) {
+                                houreSelect.append('<option value="' + key + '">' + label + '</option>');
+                            });
+
+                            if (Object.keys(res.data).length === 0) {
+                                houreSelect.append('<option value="">Aucune heure disponible</option>');
+                                houreSelect.prop('disabled', true);
+                            }
+                        }
+                    },
+                    error: function() {
+                        console.error('Erreur lors du chargement des heures');
+                    }
+                });
+            },
             onOk            : function (modal, loader, sucess, fail){
 
                 let form = $('#form_prendre_rdv');

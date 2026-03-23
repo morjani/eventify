@@ -8,5 +8,7 @@ class Rndv extends Model
 {
     use HasFactory;
     protected $table = 'prendre_rdv';
-    protected $fillable = ['heure','message','id_demandeur','id_demande'];
+    protected $primaryKey = 'id_rdv';
+    public $incrementing = true;
+    protected $fillable = ['heure','message','id_demandeur','id_demande','status','motif_annulation','annule_par'];
 }

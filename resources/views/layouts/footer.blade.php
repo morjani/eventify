@@ -44,10 +44,9 @@
 <script src="{{ asset('assets/js/notify/bootstrap-notify.min.js') }}"></script>
 <script src="{{ asset('assets/js/notify/index.js') }}"></script>
 
-<!-- Datatables -->
-<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/js/datatable/datatables/dataTables.js') }}"></script>
+<script src="{{ asset('assets/js/datatable/datatables/dataTables.select.js') }}"></script>
 <script src="{{ asset('assets/js/datatable/datatables/select.bootstrap5.js') }}"></script>
-
 <!-- Typeahead -->
 <script src="{{ asset('assets/js/typeahead/handlebars.js') }}"></script>
 <script src="{{ asset('assets/js/typeahead/typeahead.bundle.js') }}"></script>
@@ -71,6 +70,7 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/order.js') }}"></script>
 <script src="{{ asset('assets/js/category.js') }}"></script>
-<script src="{{ asset('assets/js/product.js') }}"></script>
+<script src="{{ asset('assets/js/rdv.js') }}"></script>
+<script src="{{ asset('assets/js/participant.js') }}"></script>
 </body>
 </html>

@@ -6,48 +6,48 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Prendre;
 use App\Models\Rndv;
+use App\Services\RdvService;
 use Throwable;
 
-class PrendreController extends RootController
+class ParticipantController extends RootController
 {
     public function index()
     {
         
-        return backView('front.prendre', [
-            'page' => 'prendre'
+        return backView('participant.index', [
+            'page' => 'Participants'
         ]);
     }
-    public function dtPrendre(Request $request): JsonResponse
+    public function dtParticipants(Request $request): JsonResponse
     {
         try {
 
+            $currentUserId = auth()->id();
+            $user = auth()->user();
 
-           //get current user id
-           //zido f requette fl where currentr_id <> 
-           
             $query = "
                 SELECT u.*, p.pays as pays
                 FROM users u
                 LEFT JOIN pays p ON p.id = u.id_pays
-                WHERE u.role_id = 2
+                LEFT JOIN roles r ON r.id = u.role_id
+                WHERE r.name = 'participant' AND u.id != $currentUserId
             ";
 
-
             // Datatable processing (pagination, search, ordering)
-            $result = $this->DoDatatable($query, $request, function ($i, $row) {
+            $result = $this->DoDatatable($query, $request, function ($i, $row) use ($currentUserId, $user) {
 
+                // Afficher le bouton uniquement si l'utilisateur actuel est un participant
+                if ($user->hasRole('participant')) {
+                    $canTakeRdv = RdvService::canTakeRdv($currentUserId, $row->id);
 
-                $row->actions = '<div class="btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Actions
-                        </button>
-                        <ul class="dropdown-menu" style="">
-                          <li>
-                          <a class="dropdown-item prendre-rdv" href="JavaScript:void(0)"
-                          data-id="'.$row->id.'">Prendre RDV</a>
-                          </li>  
-                        </ul>
-                      </div>';
+                    if ($canTakeRdv) {
+                        $row->actions = '<button class="btn btn-outline-primary btn-sm prendre-rdv" data-id="' . $row->id . '">Prendre RDV</button>';
+                    } else {
+                        $row->actions = '';
+                    }
+                } else {
+                    $row->actions = '';
+                }
                 
             });
             
@@ -108,5 +108,28 @@ class PrendreController extends RootController
 
     }
 
+    public function getAvailableHours($participantId): JsonResponse
+    {
+        try {
+            $currentUserId = auth()->id();
+
+            $availableHours = RdvService::getAvailableHours($currentUserId, $participantId);
+
+            return response()->json([
+                'success' => true,
+                'data' => $availableHours
+            ]);
+
+        } catch (Throwable $e) {
+            logger()->error('Error fetching available hours', [
+                'message' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Impossible de charger les heures disponibles',
+            ], 500);
+        }
+    }
 
 }

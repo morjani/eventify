@@ -56,10 +56,14 @@ function initDatatable(table, cols, config, whenDraw , btns){
                 "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
                 "sLast": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>'
             },
-            "sInfo": "Showing page _PAGE_ of _PAGES_",
+            "sInfo": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
+            "sInfoEmpty": "Affichage de 0 à 0 sur 0 entrées",
+            "sInfoFiltered": "(filtrée parmi _MAX_ entrées au total)",
             "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-            "sSearchPlaceholder": "Search...",
-            "sLengthMenu": "Results :  _MENU_",
+            "sSearchPlaceholder": "Rechercher...",
+            "sLengthMenu": "Afficher _MENU_ entrées",
+            "sZeroRecords": "Aucun enregistrement trouvé",
+            "sProcessing": "Traitement en cours..."
         }
     };
 
