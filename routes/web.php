@@ -14,8 +14,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ParticipantController;
 
 
-Route::middleware('auth')->group(function () {
+Route::get('/',[FrontController::class,'create'])->name('index');
+Route::post('/ajax/store-user', [UserController::class, 'store'])->name('user.store');
 
+Route::middleware('auth')->group(function () {
 
 
     Route::middleware(['auth', 'role:admin,participant'])->group(function () {
@@ -29,9 +31,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/ajax/rdv-cancel-form/{id_rdv}', [RdvController::class, 'cancelForm'])->name('rdv.cancel-form');
         Route::post('/ajax/rdv-change-status',[RdvController::class,'changeStatus'])->name('rdv.change-status');
         Route::get('/ajax/dt-participants',[ParticipantController::class,'dtParticipants'])->name('dt-participants');
-        Route::post('/ajax/Rndv',[ParticipantController::class,'store'])->name('Rndv');
-        Route::post('/ajax/store-user', [UserController::class, 'store'])->name('user.store');
-        Route::get('/',[FrontController::class,'create'])->name('index');
+        Route::post('/ajax/store-rdv',[ParticipantController::class,'store'])->name('Rndv');
         Route::get('/participants',[ParticipantController::class,'index'])->name('participant.index');
         Route::get('/ajax/prendre-rdv',[ParticipantController::class,'prendreRdv'])->name('prendre.rdv');
         Route::get('/ajax/available-hours/{participantId}',[ParticipantController::class,'getAvailableHours'])->name('available-hours');

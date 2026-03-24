@@ -124,7 +124,7 @@ $(function () {
                         .html('<span class="spinner"></span> Inprogress');
 
                     $.ajax({
-                        url: '/ajax/prendre-rdv',
+                        url: '/ajax/store-rdv',
                         type: 'POST',
                         data: form.serialize() + '&participant_id=' + participantId,
                         dataType: 'json',

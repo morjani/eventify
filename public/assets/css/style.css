@@ -112558,3 +112558,22 @@ body[class*="dark-"] .for-light {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.password-container {
+  position: relative;
+  width: 250px;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; 
+}
+
+.password-container .toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  
+}

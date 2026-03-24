@@ -44,6 +44,7 @@
       <link href="../assets/css/color-6.css" rel="stylesheet">
       <link href="../assets/css/responsive.css" rel="stylesheet">
       <link href="/public/assets/css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="{{ asset('assets/js/main.js') }}">
    </head>
 <body>
     

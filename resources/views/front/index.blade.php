@@ -90,7 +90,7 @@
          <div class="form-group">
             <label class="col-form-label">Mot de passe</label>
             <div class="form-input position-relative">
-               <input class="form-control" type="password" name='password'id='password'  placeholder="*********" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="minimum 8 caractère et numbre">
+               <input class="form-control" type="password" name='password' id='password'  placeholder="*********" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="minimum 8 caractère et numbre">
             </div>
          <div class="form-group">
             <label class="col-form-label">Vérifier le mot de passe</label>
