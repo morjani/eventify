@@ -3,18 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RdvController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ParticipantController;
 
 
-Route::get('/',[FrontController::class,'create'])->name('index');
+Route::get('/', [RdvController::class, 'index'])->name('index')->middleware(['auth', 'role:admin,participant']);
+Route::get('/create-participant',[FrontController::class,'create'])->name('create-participant');
 Route::post('/ajax/store-user', [UserController::class, 'store'])->name('user.store');
 
 Route::middleware('auth')->group(function () {

@@ -27,15 +27,41 @@ $(document).ready(function () {
                 success: function (res) {
                     
                     if(res.success){
-                        alert(res.message);
+                       Toast.fire({
+                                    icon: "success",
+                                    title: res.message
+                                });
+                        setTimeout(function() {
+                            window.location.href = '/login';
+                        }, 2000); // Redirect after 2 seconds
 
                     }
                     else{
-                        alert(res.message);
+                        Toast.fire({
+                            icon: "error",
+                            title: res.message
+                        });
                     }
                 },
 
                 error: function (xhr) {
+                    console.error(xhr);
+                    if (xhr.status == 422) {
+                        let errors = xhr.responseJSON.errors;
+                        let errorMessage = '';
+                        for (let field in errors) {
+                            errorMessage += errors[field][0] + '\n';
+                        }
+                        Toast.fire({
+                            icon: "error",
+                            title: errorMessage
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: "error",
+                            title: 'Erreur serveur. Veuillez réessayer.'
+                        });
+                    }
                 }
 
             });

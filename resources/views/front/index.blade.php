@@ -34,6 +34,7 @@
       <script defer src="../assets/css/style.js"></script>
       <link href="../assets/css/color-1.css" rel="stylesheet">
       <link href="../assets/css/responsive.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/sweetalert2.css') }}">
 </head>
 
    <body class="form-index">
@@ -46,9 +47,9 @@
       <div class="col-xl-7 p-0">
       <div class="login-card login-dark">
       <div>
-      <div><a class="logo text-start" href="index.html">
-         <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage">
-         <img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage"></a>
+      <div><a class="logo text-start" href="{{ route('create-participant') }}">
+         <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage" style="width: 11rem;">
+         <img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage" style="width: 11rem;"></a>
       </div>
       <div class="login-main create-account">
       <form class="theme-form" id="form-search" >
@@ -110,8 +111,12 @@
       </form>
      
    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
+   <script src="{{ asset('assets/js/sweet-alert/sweetalert.min.js') }}"></script>
+
+   <script src="{{ asset('assets/js/main.js') }}"></script>
   
-      <script src="{{ asset('assets/js/front.js') }}"></script>
+   <script src="{{ asset('assets/js/front.js') }}"></script>
       <script>
          $(document).ready(function () {
             $('#form-search').on('submit', function(e) {
@@ -126,4 +131,3 @@
    </body>
    
 </html>
-

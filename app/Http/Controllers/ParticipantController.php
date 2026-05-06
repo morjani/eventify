@@ -96,6 +96,7 @@ class ParticipantController extends RootController
                 [
                     'heure'    => $validated['heure'],
                     'message' => $validated['message'],
+                    'id_event' => 1, // Set to null since it's not provided in the request
                     'id_demandeur' =>$userId,//id_demandeur
                     'id_demande'=>$request->participant_id,//id_demande
 

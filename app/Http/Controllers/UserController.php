@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Users;
+use App\Models\User as Users;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,6 +21,13 @@ class UserController extends Controller
                 'email' => 'required|email|max:255|unique:users,email',
                 'password'=>'required|string|min:3|max:255|confirmed',
                 
+            ], [
+                'email.unique' => 'Cet email est déjà utilisé.',
+                'password.confirmed' => 'Les mots de passe ne correspondent pas.',
+                'required' => 'Le champ :attribute est requis.',
+                'email' => 'Veuillez entrer une adresse email valide.',
+                'min' => 'Le champ :attribute doit contenir au moins :min caractères.',
+                'max' => 'Le champ :attribute ne peut pas dépasser :max caractères.',
             ]);
             $user = Users::create(
                 [
@@ -31,6 +38,7 @@ class UserController extends Controller
                     'id_pays'     => $validated['id_pays'],
                     'ville'     => $validated['ville'],
                     'email'     => $validated['email'],
+                    'phone' => $request->input('phone'),
                     'password' => Hash::make($validated['password']),
 
                 ]);

@@ -2,6 +2,10 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <p class="mt-4 text-center">
+        <a href="/create-participant" class="text-sm text-blue-600 hover:text-blue-900 underline">Vous n'avez pas de compte ? Créer un compte</a>
+    </p>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

@@ -10,5 +10,5 @@ class Rndv extends Model
     protected $table = 'prendre_rdv';
     protected $primaryKey = 'id_rdv';
     public $incrementing = true;
-    protected $fillable = ['heure','message','id_demandeur','id_demande','status','motif_annulation','annule_par'];
+    protected $fillable = ['heure','message','id_event','id_demandeur','id_demande','status','motif_annulation','annule_par'];
 }
