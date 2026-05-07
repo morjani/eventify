@@ -1,146 +1,6 @@
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./assets/scss/style.scss ***!
-  \*******************************************************************************************************************************************************************************************************************/
+
 @charset "UTF-8";
-/*! -----------------------------------------------------------------------------------
 
-    Template Name: Cuba Admin
-    Template URI: http://admin.pixelstrap.com/cuba/template
-    Description: This is Admin theme
-    Author: Pixelstrap
-    Author URI: https://themeforest.net/user/pixelstrap
-
------------------------------------------------------------------------------------
-
-    1.Base css
-        1.1 Reset CSS
-        1.2 Typography CSS
-
-    2.Components css
-        2.1 According CSS
-        2.2 Alert CSS
-        2.3 Avatars CSS
-        2.4 Badge CSS
-        2.5 Bookmark CSS
-        2.6 Breadcrumb CSS
-        2.7 Basic-card CSS
-        2.8 Buttons CSS
-        2.9 Block-ui CSS
-        2.10 Card CSS
-        2.11 Color CSS
-        2.12 Datatable CSS
-        2.13 Datapicker CSS
-        2.14 Dropdown CSS
-        2.15 Form-input CSS
-        2.16 Form-wizard CSS
-        2.17 Forms CSS
-        2.18 Icons CSS
-        2.19 List CSS
-        2.20 Loader CSS
-        2.21 Modal CSS
-        2.22 Popover CSS
-        2.23 Print CSS
-        2.24 Radio CSS
-        2.25 Ribbon CSS
-        2.26 Range-slider CSS
-        2.27 Switch CSS
-        2.28 Tab CSS
-        2.29 Table CSS
-        2.30 Toasts CSS
-        2.31 Touchspin CSS
-        2.32 Tour CSS
-        2.33 Tree CSS
-        2.34 Typeahead-search CSS
-        2.35 Scrollbar CSS
-
-
-    3. Pages
-        3.1 Add-product CSS
-        3.2 Blog CSS
-        3.3 Bookmark-app CSS
-        3.4 Cart CSS
-        3.5 Chart CSS
-        3.6 Chat CSS
-        3.7 Checkout CSS
-        3.8 Comingsoon CSS
-        3.9 Contacts CSS
-        3.10 Dashboard_2 CSS
-        3.11 Dashboard_3 CSS
-        3.12 Dashboard_4 CSS
-        3.13 Dashboard_5 CSS
-        3.14 Dashboard_6 CSS
-        3.15 Dashboard_7 CSS
-        3.16 Dashboard_8 CSS
-        3.17 Dashboard_9 CSS
-        3.18 Dashboard_10 CSS
-        3.19 Dashboard_11 CSS
-        3.20 Dashboard_default CSS
-        3.21 Divider CSS
-        3.22 Flash_icons CSS
-        3.23 Ecommerce CSS
-        3.24 Email-application CSS
-        3.25 Mail-box CSS
-        3.26 Errorpage CSS
-        3.27 Faq CSS
-        3.28 File CSS
-        3.29 File-manger CSS
-        3.30 Gallery CSS
-        3.31 Helper CSS
-        3.32 Internationalization CSS
-        3.33 Invoice CSS
-        3.34 Job-search CSS
-        3.35 Jsgrid CSS
-        3.36 Editors CSS
-        3.37 Kanban CSS
-        3.38 Knowledgebase CSS
-        3.39 Landing CSS
-        3.40 Language CSS
-        3.41 Learning CSS
-        3.42 Login CSS
-        3.43 Megaoption CSS
-        3.44 Navigate-link CSS
-        3.45 Order-history CSS
-        3.46 Offcanvas CSS
-        3.47 Page CSS
-        3.48 Pricing CSS
-        3.49 Progress CSS
-        3.50 Projectlist CSS
-        3.51 Placeholders CSS
-        3.52 Rating CSS
-        3.53 Social-app CSS
-        3.54 Scrollspy CSS
-        3.55 Sweet-alert CSS
-        3.56 Sellers CSS
-        3.57 Task CSS
-        3.58 Timeline-v CSS
-        3.59 User-profile CSS
-        3.60 Wishlist CSS
-        3.61 Roles-permission CSS
-        3.62 Manage-reviews CSS
-        3.63 Reports CSS
-        3.64 Settings CSS
-        3.65 Dashboard_12 CSS
-        3.66 Dashboard_13 CSS
-
-
-    4. Themes
-        4.1. Dark CSS
-        4.2 Theme-customizer CSS
-        4.3 Update CSS
-
-    5. Layout
-        5.1 Footer CSS
-        5.2 Grid CSS
-        5.3 Header CSS
-        5.4 Navs CSS
-        5.5 Search CSS
-        5.6 Select2 CSS
-        5.7 Sidebar CSS
-        5.8 Rtl CSS
-        5.9 Box-layout CSS
-
-
- */
  
     :root {
     --theme-default: #7366ff;
@@ -3629,7 +3489,7 @@ table thead .border-bottom-warning th {
 }
 .img-cropper .img-container {
     margin-bottom: 0;
-    min-height: auto;
+    
 }
 .img-cropper .docs-data > .input-group:last-child {
     margin-bottom: 0;
@@ -7038,10 +6898,9 @@ button.button-primary:hover {
 }
 .block-main-wrapper p,
 .card-block-wrapper p {
-    display: block;
     display: -webkit-box;
+    display: block;
     height: 68px;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -7196,7 +7055,6 @@ button.button-primary:hover {
 .card .card-header .card-header-right {
     background-color: var(--white);
     border-radius: 0 0 0 7px;
-    display: inline-block;
     float: right;
     padding: 8px 0;
     position: absolute;
@@ -7735,7 +7593,6 @@ button.button-primary:hover {
     .overlay-card .overlay .overlay-box.overlay-subtitle .overlay-pera {
         display: -webkit-box;
         height: 70px;
-        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -22814,11 +22671,10 @@ btn-group .dropdown-wrapper .input-group .input-group-text {
         margin-left: 0;
     }
     .list-behavior-1 .flex-grow-1 p {
-        display: block;
         display: -webkit-box;
+        display: block;
         margin: 0 auto;
         max-width: 100%;
-        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -25780,7 +25636,7 @@ fieldset .input-group-lg .touchspin {
 @media (max-width: 1694px) {
     .arrow-tabs.bg-navbar .tab-content .common-box p {
         display: -webkit-box;
-        -webkit-line-clamp: 5;
+        line-clamp: 5;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -25937,7 +25793,6 @@ fieldset .input-group-lg .touchspin {
     z-index: 0;
 }
 .horizontal-icons-tab .nav-tabs .nav-item .nav-link.active:hover span {
-    -webkit-background-clip: text;
     background-color: #fff;
     opacity: 1;
     -webkit-text-fill-color: transparent;
@@ -26292,8 +26147,8 @@ tr {
     opacity: 0;
 }
 .toast-content {
-    display: block;
     display: -webkit-box;
+    display: block;
     height: 65px;
     margin: 0 auto;
     max-width: 100%;
@@ -27231,7 +27086,7 @@ input::-webkit-outer-spin-button {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     width: 100%;
 }
@@ -33005,7 +32860,7 @@ p.data-attributes svg {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     display: -webkit-box;
 }
 .recent-activity ul li:last-child {
@@ -35790,8 +35645,7 @@ select.crypto-select.primary {
     -webkit-appearance: none;
     margin: 0;
 }
-.crypto-form input[type="number"] {
-}
+
 .balance-box {
     background-image: url(images/bg-balance.png);
     background-position: 100%;
@@ -37756,11 +37610,11 @@ select.crypto-select.primary {
 }
 @media (max-width: 1403px) {
     .knowledge-wrapper div p {
-        display: block;
         display: -webkit-box;
+        display: block;
         height: 65px;
         max-width: 100%;
-        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -38280,11 +38134,11 @@ select.crypto-select.primary {
     }
 }
 .text-ellipsis {
-    display: block;
     display: -webkit-box;
+    display: block;
     margin: 0 auto;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -39458,7 +39312,7 @@ select.crypto-select.primary {
         display: -webkit-box;
         height: 44px;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -39468,7 +39322,7 @@ select.crypto-select.primary {
     .crm-card .card-body p {
         display: -webkit-box;
         height: 44px;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -40566,7 +40420,7 @@ select.crypto-select.primary {
         display: -webkit-box;
         height: 46px;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -41360,7 +41214,7 @@ select.crypto-select.primary {
     .project-finish-card .project-left-content > p {
         display: -webkit-box;
         height: 48px;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -42134,7 +41988,7 @@ select.crypto-select.primary {
     display: -webkit-box;
     line-height: 25px;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -43950,7 +43804,7 @@ select.crypto-select.primary {
         p:last-child {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         height: 53px;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -45039,7 +44893,7 @@ select.crypto-select.primary {
 }
 .notification .card .d-flex .w-100 h6 ~ p {
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     display: block;
     overflow: hidden;
     -webkit-text-emphasis: inherit;
@@ -45050,7 +44904,7 @@ select.crypto-select.primary {
 }
 @media (max-width: 767px) {
     .notification .card .d-flex .w-100 h6 ~ p {
-        -webkit-line-clamp: unset;
+        line-clamp: unset;
         display: block;
         overflow: visible;
         -webkit-text-emphasis: unset;
@@ -46026,7 +45880,7 @@ footer.blockquote-footer {
     height: 73px;
     margin-block: 23px;
     text-align: center;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -46948,7 +46802,7 @@ footer.blockquote-footer {
         display: -webkit-box;
         height: 100px;
         max-width: 100%;
-        -webkit-line-clamp: 4;
+        line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -47240,7 +47094,7 @@ footer.blockquote-footer {
         > p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -47446,7 +47300,7 @@ footer.blockquote-footer {
     p {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -47713,7 +47567,7 @@ footer.blockquote-footer {
     margin-bottom: 0;
     max-width: 100%;
     opacity: 0.8;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -48833,7 +48687,7 @@ footer.blockquote-footer {
     letter-spacing: 0.4px;
     margin: 0 auto;
     max-width: 100%;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -49653,7 +49507,7 @@ footer.blockquote-footer {
     display: -webkit-box;
     max-width: 100%;
     padding-right: 20px;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     color: hsla(0, 0%, 100%, 0.9);
@@ -49679,7 +49533,7 @@ footer.blockquote-footer {
 .features-faq.card .card-footer p {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -49875,7 +49729,7 @@ footer.blockquote-footer {
 .faq-wrapper .d-flex p {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -50168,7 +50022,6 @@ footer.blockquote-footer {
         span {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -50405,7 +50258,7 @@ footer.blockquote-footer {
     max-width: 100%;
     text-align: center;
     width: 100%;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -50481,7 +50334,7 @@ footer.blockquote-footer {
     padding: 2px;
     text-align: center;
     width: 100%;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -50778,7 +50631,7 @@ footer.blockquote-footer {
     .common-file-manager .toast-messages .toast-container p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -50908,7 +50761,7 @@ footer.blockquote-footer {
     .gallery-with-description a .caption p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 3;
+        line-clamp: 3;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -50924,7 +50777,7 @@ footer.blockquote-footer {
     color: #a3a3a3;
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -51145,7 +50998,7 @@ footer.blockquote-footer {
     .gallery .hover-16 .overlay-hover .overlay-content p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -51157,7 +51010,7 @@ footer.blockquote-footer {
     .gallery .hover-16 .overlay-hover .overlay-content p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -51169,7 +51022,7 @@ footer.blockquote-footer {
     .gallery .hover-16 .overlay-hover .overlay-content p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -51396,7 +51249,7 @@ footer.blockquote-footer {
 }
 @media (max-width: 1399px) and (min-width: 992px) {
     .helper-height-equal {
-        min-height: auto !important;
+        min-height: 100px !important;
     }
 }
 .hdg_main {
@@ -52430,7 +52283,7 @@ footer.blockquote-footer {
     display: -webkit-box;
     line-height: 1.5;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -54069,6 +53922,7 @@ footer {
         linear-gradient(90deg, #ffb905 20.35%, #6aebad 50%),
         linear-gradient(0deg, #fff, #fff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-home .content p {
@@ -54384,11 +54238,13 @@ footer {
 .landing-title .gradient-1 {
     background: linear-gradient(90.78deg, #7366ff 49.33%, #838383 82.24%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-2 {
     background: linear-gradient(90deg, #ff6a5b 4.44%, #1e52b9 50%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-3 {
@@ -54396,31 +54252,37 @@ footer {
         linear-gradient(90deg, #7b5dfe 11.24%, #ffab2e 50%),
         linear-gradient(0deg, #ff6a5b, #ff6a5b);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-4 {
     background: linear-gradient(90deg, #22ac16 65.06%, #1c97be 92.34%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-5 {
     background: linear-gradient(90deg, #6a2fe7 2%, #46b7d0 40%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-6 {
     background: linear-gradient(271deg, #f1305f 30%, #06f 80%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-7 {
     background: linear-gradient(90deg, #ff7a00 20%, #d72695 89.68%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-8 {
     background: linear-gradient(257.2deg, #ff5e51 21.09%, #ffab6f);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-9 {
@@ -54430,26 +54292,31 @@ footer {
         #24d34b 103.68%
     );
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-10 {
     background: linear-gradient(90deg, #4a86fb 50%, #ff5823 68.37%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-11 {
     background: linear-gradient(90deg, #ff1717 22.23%, #0a96e6 68.75%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-12 {
     background: linear-gradient(90deg, #89d32b 5.6%, #ff7a00 36.2%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title .gradient-13 {
     background: linear-gradient(90deg, #ff6056 31.63%, #7f74fe 67.63%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .landing-title p {
@@ -55282,7 +55149,6 @@ footer .sub-footer ul li i {
 .landing-page .cuba-demo-section .cuba-demo-content .couting h2,
 .page-wrapper .cuba-demo-section .cuba-demo-content .couting h2 {
     background: linear-gradient(180deg, #5456aa, rgba(0, 2, 72, 0) 88.85%);
-    -webkit-background-clip: text;
     color: var(--theme-default);
     font-size: calc(72.22222px + 9.25926vw);
     font-weight: 500;
@@ -56725,7 +56591,6 @@ ul.dot-group li {
     .manage-review .recent-table table thead tr th .customer-review span {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 3;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -58440,7 +58305,7 @@ button.progress-btn {
         h6 {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         color: var(--body-font-color);
@@ -58853,7 +58718,7 @@ button.progress-btn {
 .project-todo .crm-todo-list li .flex-grow-1 span {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -59476,7 +59341,7 @@ button.progress-btn {
 .attach-files-wrapper .upload-files-wrapper > div .d-flex p {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 1;
+    line-clamp: 1;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -59522,7 +59387,7 @@ button.progress-btn {
     display: -webkit-box;
     margin-bottom: 6px;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -59567,7 +59432,7 @@ button.progress-btn {
     span:not(.activity-profile, .activity-profile span, .date-time) {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -60186,7 +60051,7 @@ button.progress-btn {
     display: -webkit-box;
     margin-bottom: 8px;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -60222,7 +60087,7 @@ button.progress-btn {
 .projects-wrapper .project-body h6 {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -65699,7 +65564,7 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
 .seller-wrapper .basic-wizard .stepper-horizontal .step .step-title {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -66198,7 +66063,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     letter-spacing: 0.2px;
     margin: 0;
     max-width: 100%;
-    -webkit-line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -66285,7 +66149,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     line-height: 1.6;
     margin: calc(7.2px + 0.25vw) 0 0;
     max-width: 100%;
-    -webkit-line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -67076,7 +66939,7 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     span {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -67467,7 +67330,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     text-overflow: ellipsis;
     white-space: nowrap;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
 }
 .list-inline.events .event-list .event-date {
     border-radius: 4px;
@@ -67480,7 +67342,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     width: 75px;
 }
 .list-inline.events .event-list .event-date p {
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     line-height: 1.5;
@@ -67505,7 +67366,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     top: 2px;
 }
 .timeline-list.list-inline.events .event-list .event-date p {
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     display: -webkit-box;
     line-height: 1.5;
@@ -67654,7 +67514,7 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
         display: -webkit-box;
         margin: 0 auto;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -67984,7 +67844,6 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
     .user-profile .ttl-info span {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 3;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -68852,7 +68711,7 @@ div:where(.swal2-container) button:where(.swal2-close):hover {
 .wishlist-box .wishlist-footer h6 {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -68953,7 +68812,7 @@ table.table-bordered thead tr th p {
     .left-header h6 {
         overflow: hidden;
         width: 160px;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
@@ -69274,7 +69133,6 @@ table.table-bordered thead tr th p {
 .search-page .audio-wrapper .audio-box span {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 1;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -93439,7 +93297,7 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
         span {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -93485,7 +93343,6 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
     .box-layout .gallery-with-description a .caption p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 3;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -93611,7 +93468,7 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
     .box-layout .hover-16 .overlay-hover .overlay-content p {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
+        line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -94133,7 +93990,7 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
         p:last-child {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         height: 53px;
         -webkit-box-orient: vertical;
         margin-bottom: 11px;
@@ -94614,7 +94471,7 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
         display: -webkit-box;
         height: 46px;
         max-width: 100%;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -95099,9 +94956,9 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
         padding: 22px;
     }
     .box-layout .follower-wrap .papernote-wrap > span {
+        display: -webkit-box; 
         display: block;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -98364,8 +98221,8 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
     filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
     height: 35px;
     left: 50%;
-    opacity: 0;
     -moz-opacity: 0;
+    opacity: 0;
     position: absolute;
     transform: translateX(-50%);
     width: 200px;
@@ -98513,7 +98370,6 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
     display: -webkit-box;
     max-width: 100%;
     padding-inline: 12px;
-    -webkit-line-clamp: 3;
     height: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -98747,7 +98603,6 @@ html[dir="rtl"] .dtfh-floatingparent-foot > div {
     .api-management .recent-table table thead tr th:nth-child(2) span {
         display: -webkit-box;
         max-width: 100%;
-        -webkit-line-clamp: 1;
         height: auto;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -112553,8 +112408,8 @@ body[class*="dark-"] .for-light {
     left:1200px;
     top:20px;
 }
-.form-index{
-    background-image: url(images/preview16.jpg);
+#form-index{
+    background-image: url(images/coming-soon-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -112576,4 +112431,16 @@ body[class*="dark-"] .for-light {
   transform: translateY(-50%);
   cursor: pointer;
   
+}
+#icon{
+    position: absolute;
+    right: 2%;
+    bottom: 30%;
+    cursor:pointer
+}
+#icon1{
+    position: absolute;
+    right: 2%;
+    bottom: 30%;
+    cursor:pointer
 }

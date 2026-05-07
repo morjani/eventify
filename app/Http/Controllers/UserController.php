@@ -20,6 +20,7 @@ class UserController extends Controller
                 'ville'=>'required|string|min:3|max:60',
                 'email' => 'required|email|max:255|unique:users,email',
                 'password'=>'required|string|min:3|max:255|confirmed',
+//Updated upstream
                 
             ], [
                 'email.unique' => 'Cet email est déjà utilisé.',
@@ -28,6 +29,9 @@ class UserController extends Controller
                 'email' => 'Veuillez entrer une adresse email valide.',
                 'min' => 'Le champ :attribute doit contenir au moins :min caractères.',
                 'max' => 'Le champ :attribute ne peut pas dépasser :max caractères.',
+
+                'phone'=>'required|string|min:3|max:10'
+//Stashed changes
             ]);
             $user = Users::create(
                 [
@@ -40,7 +44,7 @@ class UserController extends Controller
                     'email'     => $validated['email'],
                     'phone' => $request->input('phone'),
                     'password' => Hash::make($validated['password']),
-
+                    'phone'=>$validated['phone']
                 ]);
                 return response()->json([
                     'success' => true,

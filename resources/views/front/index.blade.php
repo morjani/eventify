@@ -3,27 +3,12 @@
 <head>
    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">sss
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
-      <meta name="keywords" content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
-      <meta name="author" content="pixelstrap">
-      <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
-      <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-      <!-- Google font-->
-      <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
-      <!-- Font Awesome-->
-      <link rel="stylesheet" type="text/css" href="../assets/css/vendors/fontawesome.css">
-      <!-- ico-font-->
-      <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
-      <!-- Themify icon-->
-      <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
-      <!-- Flag icon-->
-      <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
-      <!-- Feather icon-->
-      <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
       <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+<!-- Updated upstream-->
       <!-- App css-->
       <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
       <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
@@ -35,26 +20,32 @@
       <link href="../assets/css/color-1.css" rel="stylesheet">
       <link href="../assets/css/responsive.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/sweetalert2.css') }}">
-</head>
 
-   <body class="form-index">
-      <!-- login page start-->
+      <link rel="stylesheet" href="../assets/css/style.css">
+<!-- Stashed changes-->
+</head>
+   <body id="form-index">
       <div class="container-fluid p-0">
       <div class="row m-0">
       <div class="col-xl-5">
-         
       </div>
       <div class="col-xl-7 p-0">
       <div class="login-card login-dark">
       <div>
+<!-- Updated upstream-->
       <div><a class="logo text-start" href="{{ route('create-participant') }}">
          <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage" style="width: 11rem;">
          <img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage" style="width: 11rem;"></a>
+
+      <div><div class="logo text-start">
+         <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage">
+         </div>
+<!-- Stashed changes-->
       </div>
       <div class="login-main create-account">
       <form class="theme-form" id="form-search" >
          @csrf
-          <h4>Creer votre compte</h4>
+          <h4><b>Creer votre compte</b></h4>
           <p>Saisissez vos informations personnelles pour créer votre compte</p>
          <div class="form-group">
             <label class="col-form-label pt-0">Nom Complet</label>
@@ -91,11 +82,13 @@
          <div class="form-group">
             <label class="col-form-label">Mot de passe</label>
             <div class="form-input position-relative">
+               <img src="/assets/css/images/png-clipart-computer-icons-eye-icon-eye-side-miscellaneous-text.png" width="40px" id="icon">
                <input class="form-control" type="password" name='password' id='password'  placeholder="*********" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="minimum 8 caractère et numbre">
             </div>
          <div class="form-group">
             <label class="col-form-label">Vérifier le mot de passe</label>
             <div class="form-input position-relative">
+               <img src="/assets/css/images/png-clipart-computer-icons-eye-icon-eye-side-miscellaneous-text.png" width="40px" id="icon1">
                <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" placeholder="*********" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="minimum 8 caractère et numbre">
          </div>
          </div>
@@ -122,12 +115,33 @@
             $('#form-search').on('submit', function(e) {
                if ($('#password').val() !== $('#password_confirmation').val()) {
                   e.preventDefault();
-                  alert('Passwords must match');
+                  alert('Le mot de passe et sa confirmation ne correspondent pas');
                }
          });
 
          });
       </script>
+      <script>
+         const password = document.getElementById("password");
+         const password1 = document.getElementById("password_confirmation");
+         const icon = document.getElementById("icon");
+         const icon1 =document.getElementById("icon1");
+
+         icon.addEventListener("click", () => {
+         if (password.type === "password") {
+            password.type = "text";
+         } else {
+            password.type = "password";
+         }
+         });
+         icon1.addEventListener("click", () => {
+         if (password1.type === "password") {
+            password1.type = "text";
+         } else {
+            password1.type = "password";
+         }
+         });
+      </script>
    </body>
-   
+
 </html>
