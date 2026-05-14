@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -24,7 +25,7 @@ class User extends Authenticatable
         'last_name',
         'first_name',
         'phone',
-        'name',
+        'role',
         'id_pays',
         'ville',
         'email',
@@ -60,9 +61,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function hasRole(...$roles)
-    {
-        return in_array($this->role?->name, $roles);
-    }
+   
+ 
 
 }

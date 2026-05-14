@@ -22,8 +22,8 @@ class ParticipantController extends RootController
     {
         try {
 
-            $currentUserId = auth()->id();
-            $user = auth()->user();
+            $currentUserId = Auth::id();
+            $user =  Auth::user();
 
             $query = "
                 SELECT u.*, p.pays as pays
@@ -37,6 +37,7 @@ class ParticipantController extends RootController
             $result = $this->DoDatatable($query, $request, function ($i, $row) use ($currentUserId, $user) {
 
                 // Afficher le bouton uniquement si l'utilisateur actuel est un participant
+                /** @var \App\Models\User $user */
                 if ($user->hasRole('participant')) {
                     $canTakeRdv = RdvService::canTakeRdv($currentUserId, $row->id);
 
@@ -112,7 +113,7 @@ class ParticipantController extends RootController
     public function getAvailableHours($participantId): JsonResponse
     {
         try {
-            $currentUserId = auth()->id();
+            $currentUserId = Auth::id();;
 
             $availableHours = RdvService::getAvailableHours($currentUserId, $participantId);
 

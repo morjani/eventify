@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('prendre_rdv', function (Blueprint $table) {
-            //
+            $table->dropColumn(['id_receiver','id_requesteur']);
         });
     }
 };

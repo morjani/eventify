@@ -16,7 +16,8 @@ class CheckRole
         }
 
         // Allow if user's role key is in allowed roles
-        if (!in_array($user->role?->name, $roles)) {
+      
+        if  (!in_array($user->role->name, $roles)) {
             abort(403, 'Unauthorized');
         }
 

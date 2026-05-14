@@ -3,7 +3,7 @@
 <head>
    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">sss
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="">
       <meta name="keywords" content="">
@@ -32,11 +32,6 @@
       <div class="col-xl-7 p-0">
       <div class="login-card login-dark">
       <div>
-<!-- Updated upstream-->
-      <div><a class="logo text-start" href="{{ route('create-participant') }}">
-         <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage" style="width: 11rem;">
-         <img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage" style="width: 11rem;"></a>
-
       <div><div class="logo text-start">
          <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt="looginpage">
          </div>

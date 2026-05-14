@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
-use App\Models\PageEvent;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Rndv;
 use Throwable;
 use App\Models\Evenement;
@@ -21,7 +21,7 @@ class RdvController extends RootController
     {
         try {
 
-            $currentUserId = auth()->id();
+            $currentUserId = Auth::id();
 
             $query = "
                 SELECT pv.id_rdv,
@@ -131,7 +131,7 @@ class RdvController extends RootController
 
         if ($validated['status'] === 'annulé') {
             $rdv->motif_annulation = $validated['motif_annulation'] ?? null;
-            $rdv->annule_par = auth()->id();
+            $rdv->annule_par = Auth::id();
         }
 
         $rdv->save();

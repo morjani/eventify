@@ -25,7 +25,7 @@ $(document).ready(function () {
                 contentType: false,
 
                 success: function (res) {
-                    
+                    console.log(res);
                     if(res.success){
                        Toast.fire({
                                     icon: "success",
