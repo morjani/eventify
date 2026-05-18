@@ -66,80 +66,6 @@ LOCK TABLES `cache_locks` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categories` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `shopify_categorie_id` bigint unsigned DEFAULT NULL,
-  `shopify_handle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shopify_synced_at` timestamp NULL DEFAULT NULL,
-  `deleted` int NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `categories_shopify_categorie_id_index` (`shopify_categorie_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `categories`
---
-
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,1,'Category 1','Category 1',NULL,NULL,NULL,0,'2026-02-22 23:16:15','2026-02-22 23:16:15'),(2,1,'Category 1','Category 1',NULL,NULL,NULL,0,'2026-02-22 23:16:24','2026-02-22 23:16:24'),(3,1,'Category 1','Category 1',NULL,NULL,NULL,0,'2026-02-22 23:18:36','2026-02-22 23:18:36');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `customers`
---
-
-DROP TABLE IF EXISTS `customers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `shopify_customer_id` bigint DEFAULT NULL,
-  `user_id` bigint unsigned DEFAULT NULL,
-  `first_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country_id` bigint unsigned DEFAULT NULL,
-  `country_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city_id` bigint unsigned DEFAULT NULL,
-  `city_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `zip_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `prospect` int NOT NULL DEFAULT '0',
-  `deleted` int NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `customers`
---
-
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (9,9209525239976,1,'test','morjani','0666666666',NULL,NULL,'mounirmorjani@gmail.com',NULL,'Morocco',NULL,'Marrakech','30000','6 Commune Rurale Ouidane Sidi Youssef Ben Ali, 6, 03759, Marrakech-Ménara, Morocco',0,0,'2026-02-20 18:08:12','2026-02-28 22:31:44'),(11,9227176411304,1,'Younes','Ennali','+212661620351',NULL,NULL,NULL,NULL,'Morocco',NULL,'Tanger','90000','Branes 2',0,0,'2026-02-21 13:51:36','2026-02-21 13:51:36');
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `evenements`
 --
 
@@ -411,123 +337,6 @@ LOCK TABLES `model_has_roles` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `order_items`
---
-
-DROP TABLE IF EXISTS `order_items`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order_items` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned DEFAULT NULL,
-  `order_id` bigint unsigned DEFAULT NULL,
-  `product_id` bigint unsigned DEFAULT NULL,
-  `shopify_product_id` bigint unsigned DEFAULT NULL,
-  `shopify_variant_id` bigint unsigned DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `sku` varchar(255) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `quantity` int DEFAULT '1',
-  `total_discount` decimal(10,2) DEFAULT '0.00',
-  `tax` decimal(10,2) DEFAULT '0.00',
-  `requires_shipping` tinyint(1) DEFAULT '1',
-  `is_gift_card` tinyint(1) DEFAULT '0',
-  `vendor` varchar(255) DEFAULT NULL,
-  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  `deleted` int DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `order_items_order_id_index` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `order_items`
---
-
-LOCK TABLES `order_items` WRITE;
-/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
-INSERT INTO `order_items` VALUES (3,1,10,4,8910631010472,NULL,'Tableau luxe Éclipse Dorée - Cadre américain','0032-100X600',375.00,5,0.00,0.00,1,0,NULL,NULL,0,'2026-02-20 18:08:19','2026-02-20 20:42:22'),(4,1,10,4,NULL,NULL,NULL,'0032-140X90-CN-OUI',1186.00,2,0.00,0.00,1,0,NULL,NULL,0,'2026-02-20 20:41:59',NULL),(5,NULL,12,6,8910633566376,NULL,'Nuage tableau décoratif Gold - Cadre américain','0010-70X45',240.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-20 20:49:52',NULL),(6,NULL,12,7,8910632321192,NULL,'Arbre doré reflect realistic - Cadre américain','0039-70X45',240.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-20 20:49:54','2026-02-20 20:55:54'),(7,1,12,4,NULL,NULL,NULL,'0032-140X80-CN',786.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-20 21:00:52',NULL),(8,NULL,13,8,9262668218536,NULL,'jazz saxophone Abstrait','0085-120X70-CB-OUI',883.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-21 13:51:39',NULL),(9,1,13,4,NULL,NULL,NULL,'0032-140X80-CN-OUI',1186.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-22 11:50:44',NULL),(10,1,13,4,NULL,NULL,NULL,'0032-140X80-CD',786.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-22 11:52:35',NULL),(11,1,12,10,NULL,NULL,NULL,'ull22',22.00,2,0.00,0.00,1,0,NULL,NULL,0,'2026-02-22 23:19:25',NULL),(12,1,12,12,NULL,NULL,NULL,'ull22',22.00,2,0.00,0.00,1,0,NULL,NULL,0,'2026-02-22 23:22:45',NULL),(13,1,12,13,NULL,NULL,NULL,'u48484',6666.00,3,0.00,0.00,1,0,NULL,NULL,0,'2026-02-22 23:28:50',NULL),(14,1,15,4,NULL,NULL,NULL,'0032-140X80-CB-OUI',1186.00,1,0.00,0.00,1,0,NULL,NULL,0,'2026-02-23 23:59:16',NULL),(15,1,16,4,NULL,NULL,NULL,'0032-140X80-CB-OUI',1186.00,2,0.00,0.00,1,0,NULL,NULL,1,'2026-02-28 22:32:21','2026-03-05 11:07:25');
-/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `order_no_responses`
---
-
-DROP TABLE IF EXISTS `order_no_responses`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order_no_responses` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `order_id` bigint DEFAULT NULL,
-  `user_id` bigint DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `order_no_responses`
---
-
-LOCK TABLES `order_no_responses` WRITE;
-/*!40000 ALTER TABLE `order_no_responses` DISABLE KEYS */;
-INSERT INTO `order_no_responses` VALUES (1,13,1,'2026-02-22 01:15:15','2026-02-22 01:15:15'),(2,13,1,'2026-02-22 01:44:50','2026-02-22 01:44:50'),(3,13,1,'2026-02-22 01:44:53','2026-02-22 01:44:53'),(4,13,1,'2026-02-22 02:08:01','2026-02-22 02:08:01');
-/*!40000 ALTER TABLE `order_no_responses` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orders` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `user_id` bigint unsigned NOT NULL,
-  `customer_id` bigint unsigned NOT NULL,
-  `shopify_order_id` bigint unsigned DEFAULT NULL,
-  `shopify_handle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shopify_synced_at` timestamp NULL DEFAULT NULL,
-  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `custom_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `reference` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_shipping` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total_ht` decimal(12,2) DEFAULT '0.00',
-  `total_ttc` decimal(12,2) DEFAULT '0.00',
-  `tva` decimal(12,2) DEFAULT '0.00',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `note` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `source` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'crm',
-  `customer_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `cancel_reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `deleted` int DEFAULT '0',
-  `sort` int DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `orders_shopify_order_id_index` (`shopify_order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `orders`
---
-
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (10,'2026-02-20',1,9,6962801377448,NULL,NULL,'1807','crm_000001',NULL,'confirmed','processing',NULL,375.00,375.00,0.00,NULL,NULL,'shopify','rabat testt',NULL,0,0,'2026-02-20 18:08:12','2026-02-27 01:12:30'),(12,'2026-02-20',1,9,6963050479784,NULL,NULL,'1808','crm_000004',NULL,'pending',NULL,NULL,480.00,480.00,0.00,NULL,'tets test','shopify',NULL,NULL,0,0,'2026-02-20 20:49:50','2026-02-25 00:22:38'),(13,'2026-02-21',1,11,6964698054824,NULL,NULL,'1809',NULL,NULL,'cancelled',NULL,NULL,883.00,883.00,0.00,NULL,NULL,'crm',NULL,'test test',0,0,'2026-02-21 13:51:36','2026-02-22 02:10:39'),(15,'2026-02-23',1,9,NULL,NULL,NULL,NULL,'crm_000003',NULL,'confirmed',NULL,NULL,0.00,1186.00,0.00,NULL,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,','crm','6 Commune Rurale Ouidane Sidi Youssef Ben Ali, 6, 03759, fes-Ménara, Morocco',NULL,0,0,'2026-02-23 23:58:20','2026-02-28 22:30:54'),(16,'2026-02-28',1,9,NULL,NULL,NULL,NULL,'crm_000005',NULL,'pending',NULL,NULL,0.00,2372.00,0.00,NULL,'sssssssssssssssss','crm','sssssssssssssssssssss',NULL,0,0,'2026-02-28 22:31:44','2026-02-28 22:32:22');
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `password_reset_tokens`
 --
 
@@ -665,86 +474,6 @@ INSERT INTO `prendre_rdv` VALUES (11,'14-15','ccccccc',28,1,'annulé','test',1,1
 UNLOCK TABLES;
 
 --
--- Table structure for table `product_variants`
---
-
-DROP TABLE IF EXISTS `product_variants`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `product_variants` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `product_id` bigint unsigned NOT NULL,
-  `user_id` bigint unsigned NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `barcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` decimal(12,2) DEFAULT NULL,
-  `compare_price` decimal(12,2) DEFAULT NULL,
-  `stock` int NOT NULL DEFAULT '0',
-  `manage_stock` tinyint(1) NOT NULL DEFAULT '1',
-  `shopify_variant_id` bigint unsigned DEFAULT NULL,
-  `shopify_handle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shopify_synced_at` timestamp NULL DEFAULT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `deleted` int NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `product_variants`
---
-
-LOCK TABLES `product_variants` WRITE;
-/*!40000 ALTER TABLE `product_variants` DISABLE KEYS */;
-INSERT INTO `product_variants` VALUES (1,4,1,'70x45cm / Sans cadre / Non','0032-70X45',NULL,240.00,NULL,-10,1,52128203931816,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(2,4,1,'70x45cm / Sans cadre / Oui','0032-70X45-OUI',NULL,440.00,NULL,0,1,54649960497320,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(3,4,1,'70x45cm / Cadre Doré / Non','0032-70X45-CD',NULL,375.00,NULL,-2,1,52128203964584,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(4,4,1,'70x45cm / Cadre Doré / Oui','0032-70X45-CD-OUI',NULL,575.00,NULL,0,1,54649960530088,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(5,4,1,'70x45cm / Cadre Noir / Non','0032-70X45-CN',NULL,375.00,NULL,0,1,54649960562856,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(6,4,1,'70x45cm / Cadre Noir / Oui','0032-70X45-CN-OUI',NULL,575.00,NULL,0,1,54649960595624,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(7,4,1,'70x45cm / Cadre Blanc / Non','0032-70X45-CB',NULL,375.00,NULL,0,1,54649960628392,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(8,4,1,'70x45cm / Cadre Blanc / Oui','0032-70X45-CB-OUI',NULL,575.00,NULL,0,1,54649960661160,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(9,4,1,'100x60cm / Sans cadre / Non','0032-100X60',NULL,375.00,NULL,-6,1,52128203997352,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(10,4,1,'100x60cm / Sans cadre / Oui','0032-100X60-OUI',NULL,625.00,NULL,0,1,54649960693928,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(11,4,1,'100x60cm / Cadre Doré / Non','0032-100X60-CD',NULL,535.00,NULL,-2,1,52128204030120,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(12,4,1,'100x60cm / Cadre Doré / Oui','0032-100X60-CD-OUI',NULL,785.00,NULL,0,1,54649960726696,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(13,4,1,'100x60cm / Cadre Noir / Non','0032-100X60-CN',NULL,535.00,NULL,0,1,54649960759464,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(14,4,1,'100x60cm / Cadre Noir / Oui','0032-100X60-CN-OUI',NULL,785.00,NULL,0,1,54649960792232,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(15,4,1,'100x60cm / Cadre Blanc / Non','0032-100X60-CB',NULL,535.00,NULL,0,1,54649960825000,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(16,4,1,'100x60cm / Cadre Blanc / Oui','0032-100X60-CB-OUI',NULL,785.00,NULL,0,1,54649960857768,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(17,4,1,'120x70cm / Sans cadre / Non','0032-120X70',NULL,465.00,NULL,-1,1,52128204062888,NULL,'2026-02-20 18:08:12',1,0,'2026-02-20 18:08:12','2026-02-20 18:08:12'),(18,4,1,'120x70cm / Sans cadre / Oui','0032-120X70-OUI',NULL,756.00,NULL,0,1,54649960890536,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(19,4,1,'120x70cm / Cadre Doré / Non','0032-120X70-CD',NULL,683.00,NULL,-8,1,52128204095656,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(20,4,1,'120x70cm / Cadre Doré / Oui','0032-120X70-CD-OUI',NULL,983.00,NULL,0,1,54649960923304,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(21,4,1,'120x70cm / Cadre Noir / Non','0032-120X70-CN',NULL,683.00,NULL,0,1,54649960956072,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(22,4,1,'120x70cm / Cadre Noir / Oui','0032-120X70-CN-OUI',NULL,983.00,NULL,0,1,54649960988840,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(23,4,1,'120x70cm / Cadre Blanc / Non','0032-120X70-CB',NULL,683.00,NULL,0,1,54649961021608,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(24,4,1,'120x70cm / Cadre Blanc / Oui','0032-120X70-CB-OUI',NULL,883.00,NULL,0,1,54649961054376,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(25,4,1,'140x80cm / Sans cadre / Non','0032-140X80',NULL,535.00,NULL,0,1,54649961087144,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(26,4,1,'140x80cm / Sans cadre / Oui','0032-140X80-OUI',NULL,935.00,NULL,0,1,54649961119912,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(27,4,1,'140x80cm / Cadre Doré / Non','0032-140X80-CD',NULL,786.00,NULL,0,1,54649961152680,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(28,4,1,'140x80cm / Cadre Doré / Oui','0032-140X80-CD-OUI',NULL,1186.00,NULL,0,1,54649961185448,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(29,4,1,'140x80cm / Cadre Noir / Non','0032-140X80-CN',NULL,786.00,NULL,0,1,54649961218216,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(30,4,1,'140x80cm / Cadre Noir / Oui','0032-140X80-CN-OUI',NULL,1186.00,NULL,0,1,54649961250984,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(31,4,1,'140x80cm / Cadre Blanc / Non','0032-140X80-CB',NULL,786.00,NULL,0,1,54649961283752,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(32,4,1,'140x80cm / Cadre Blanc / Oui','0032-140X80-CB-OUI',NULL,1186.00,NULL,0,1,54649961316520,NULL,'2026-02-20 18:08:13',1,0,'2026-02-20 18:08:13','2026-02-20 18:08:13'),(33,6,1,'70x45cm / Sans cadre / Non','0010-70X45',NULL,240.00,NULL,-22,1,52128223166632,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(34,6,1,'70x45cm / Sans cadre / Oui','0010-70X45-OUI',NULL,440.00,NULL,0,1,54649861275816,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(35,6,1,'70x45cm / Cadre Doré / Non','0010-70X45-CD',NULL,375.00,NULL,-1,1,52128223232168,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(36,6,1,'70x45cm / Cadre Doré / Oui','0010-70X45-CD-OUI',NULL,575.00,NULL,0,1,54649861308584,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(37,6,1,'70x45cm / Cadre Noir / Non','0010-70X45-CN',NULL,375.00,NULL,0,1,54649861341352,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(38,6,1,'70x45cm / Cadre Noir / Oui','0010-70X45-CN-OUI',NULL,575.00,NULL,0,1,54649861374120,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(39,6,1,'70x45cm / Cadre Blanc / Non','0010-70X45-CB',NULL,375.00,NULL,0,1,54649861406888,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(40,6,1,'70x45cm / Cadre Blanc / Oui','0010-70X45-CB-OUI',NULL,575.00,NULL,0,1,54649861439656,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(41,6,1,'100x60cm / Sans cadre / Non','0010-100X60',NULL,375.00,NULL,-8,1,52128223264936,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(42,6,1,'100x60cm / Sans cadre / Oui','0010-100X60-OUI',NULL,625.00,NULL,0,1,54649861472424,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(43,6,1,'100x60cm / Cadre Doré / Non','0010-100X60-CD',NULL,535.00,NULL,-6,1,52128223297704,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(44,6,1,'100x60cm / Cadre Doré / Oui','0010-100X60-CD-OUI',NULL,785.00,NULL,0,1,54649861505192,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(45,6,1,'100x60cm / Cadre Noir / Non','0010-100X60-CN',NULL,535.00,NULL,0,1,54649861537960,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(46,6,1,'100x60cm / Cadre Noir / Oui','0010-100X60-CN-OUI',NULL,785.00,NULL,0,1,54649861570728,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(47,6,1,'100x60cm / Cadre Blanc / Non','0010-100X60-CB',NULL,535.00,NULL,0,1,54649861603496,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(48,6,1,'100x60cm / Cadre Blanc / Oui','0010-100X60-CB-OUI',NULL,785.00,NULL,0,1,54649861636264,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(49,6,1,'120x70cm / Sans cadre / Non','0010-120X70',NULL,465.00,NULL,-7,1,52128223330472,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(50,6,1,'120x70cm / Sans cadre / Oui','0010-120X70-OUI',NULL,756.00,NULL,0,1,54649861669032,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(51,6,1,'120x70cm / Cadre Doré / Non','0010-120X70-CD',NULL,683.00,NULL,-15,1,52128223363240,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(52,6,1,'120x70cm / Cadre Doré / Oui','0010-120X70-CD-OUI',NULL,983.00,NULL,0,1,54649861701800,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(53,6,1,'120x70cm / Cadre Noir / Non','0010-120X70-CN',NULL,683.00,NULL,0,1,54649861734568,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(54,6,1,'120x70cm / Cadre Noir / Oui','0010-120X70-CN-OUI',NULL,983.00,NULL,0,1,54649861767336,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(55,6,1,'120x70cm / Cadre Blanc / Non','0010-120X70-CB',NULL,683.00,NULL,0,1,54649861800104,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(56,6,1,'120x70cm / Cadre Blanc / Oui','0010-120X70-CB-OUI',NULL,883.00,NULL,0,1,54649861832872,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(57,6,1,'140x80cm / Sans cadre / Non','0010-140X80',NULL,535.00,NULL,-1,1,54649861865640,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(58,6,1,'140x80cm / Sans cadre / Oui','0010-140X80-OUI',NULL,935.00,NULL,0,1,54649861898408,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(59,6,1,'140x80cm / Cadre Doré / Non','0010-140X80-CD',NULL,786.00,NULL,0,1,54649861931176,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(60,6,1,'140x80cm / Cadre Doré / Oui','0010-140X80-CD-OUI',NULL,1186.00,NULL,-3,1,54649861963944,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(61,6,1,'140x80cm / Cadre Noir / Non','0010-140X80-CN',NULL,786.00,NULL,0,1,54649861996712,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(62,6,1,'140x80cm / Cadre Noir / Oui','0010-140X80-CN-OUI',NULL,1186.00,NULL,0,1,54649862029480,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(63,6,1,'140x80cm / Cadre Blanc / Non','0010-140X80-CB',NULL,786.00,NULL,0,1,54649862062248,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(64,6,1,'140x80cm / Cadre Blanc / Oui','0010-140X80-CB-OUI',NULL,1186.00,NULL,0,1,54649862095016,NULL,'2026-02-20 20:49:51',1,0,'2026-02-20 20:49:51','2026-02-20 20:49:51'),(65,7,1,'70x45cm / Sans cadre','0039-70X45',NULL,240.00,NULL,-226,1,52128213696680,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(66,7,1,'70x45cm / Cadre Doré','0039-70X45-CD',NULL,375.00,NULL,-54,1,52128213729448,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(67,7,1,'100x60cm / Sans cadre','0039-100X60',NULL,375.00,NULL,-60,1,52128213762216,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(68,7,1,'100x60cm / Cadre Doré','0039-100X60-CD',NULL,525.00,NULL,-33,1,52128213794984,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(69,7,1,'120x70cm / Sans cadre','0039-120X70',NULL,465.00,NULL,-119,1,52128213827752,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(70,7,1,'120x70cm / Cadre Doré','0039-120X70-CD',NULL,683.00,NULL,-108,1,52128213860520,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(71,7,1,'140x80cm / Sans cadre','0039-140X80',NULL,535.00,NULL,-3,1,54649890046120,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(72,7,1,'140x80cm / Cadre Doré','0039-140X80-CD',NULL,786.00,NULL,-2,1,54649890078888,NULL,'2026-02-20 20:49:53',1,0,'2026-02-20 20:49:53','2026-02-20 20:49:53'),(73,8,1,'70x45cm / Sans cadre / Non','0085-70X45',NULL,240.00,NULL,-2,1,55113888235688,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(74,8,1,'70x45cm / Sans cadre / Oui','0085-70X45-OUI',NULL,440.00,NULL,0,1,55113888268456,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(75,8,1,'70x45cm / Cadre Noir / Non','0085-70X45-CN',NULL,375.00,NULL,-1,1,55113888301224,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(76,8,1,'70x45cm / Cadre Noir / Oui','0085-70X45-CN-OUI',NULL,575.00,NULL,0,1,55113888333992,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(77,8,1,'70x45cm / Cadre Doré / Non','0085-70X45-CD',NULL,375.00,NULL,0,1,55113888366760,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(78,8,1,'70x45cm / Cadre Doré / Oui','0085-70X45-CD-OUI',NULL,575.00,NULL,0,1,55113888399528,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(79,8,1,'70x45cm / Cadre Blanc / Non','0085-70X45-CB',NULL,375.00,NULL,0,1,55113888432296,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(80,8,1,'70x45cm / Cadre Blanc / Oui','0085-70X45-CB-OUI',NULL,575.00,NULL,0,1,55113888465064,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(81,8,1,'100x60cm / Sans cadre / Non','0085-100X60',NULL,375.00,NULL,0,1,55113888497832,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(82,8,1,'100x60cm / Sans cadre / Oui','0085-100X60-OUI',NULL,625.00,NULL,0,1,55113888530600,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(83,8,1,'100x60cm / Cadre Noir / Non','0085-100X60-CN',NULL,535.00,NULL,-2,1,55113888563368,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(84,8,1,'100x60cm / Cadre Noir / Oui','0085-100X60-CN-OUI',NULL,785.00,NULL,-1,1,55113888596136,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(85,8,1,'100x60cm / Cadre Doré / Non','0085-100X60-CD',NULL,535.00,NULL,0,1,55113888628904,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(86,8,1,'100x60cm / Cadre Doré / Oui','0085-100X60-CD-OUI',NULL,785.00,NULL,-1,1,55113888661672,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(87,8,1,'100x60cm / Cadre Blanc / Non','0085-100X60-CB',NULL,535.00,NULL,0,1,55113888694440,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(88,8,1,'100x60cm / Cadre Blanc / Oui','0085-100X60-CB-OUI',NULL,785.00,NULL,0,1,55113888727208,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(89,8,1,'120x70cm / Sans cadre / Non','0085-120X70',NULL,465.00,NULL,0,1,55113888759976,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(90,8,1,'120x70cm / Sans cadre / Oui','0085-120X70-OUI',NULL,756.00,NULL,0,1,55113888792744,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(91,8,1,'120x70cm / Cadre Noir / Non','0085-120X70-CN',NULL,683.00,NULL,-1,1,55113888825512,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(92,8,1,'120x70cm / Cadre Noir / Oui','0085-120X70-CN-OUI',NULL,983.00,NULL,-1,1,55113888858280,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(93,8,1,'120x70cm / Cadre Doré / Non','0085-120X70-CD',NULL,683.00,NULL,0,1,55113888891048,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(94,8,1,'120x70cm / Cadre Doré / Oui','0085-120X70-CD-OUI',NULL,983.00,NULL,0,1,55113888923816,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(95,8,1,'120x70cm / Cadre Blanc / Non','0085-120X70-CB',NULL,683.00,NULL,0,1,55113888956584,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(96,8,1,'120x70cm / Cadre Blanc / Oui','0085-120X70-CB-OUI',NULL,883.00,NULL,-1,1,55113888989352,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(97,8,1,'140x80cm / Sans cadre / Non','0085-140X80',NULL,535.00,NULL,-1,1,55113889022120,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(98,8,1,'140x80cm / Sans cadre / Oui','0085-140X80-OUI',NULL,935.00,NULL,0,1,55113889054888,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(99,8,1,'140x80cm / Cadre Noir / Non','0085-140X80-CN',NULL,786.00,NULL,0,1,55113889087656,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(100,8,1,'140x80cm / Cadre Noir / Oui','0085-140X80-CN-OUI',NULL,1186.00,NULL,-2,1,55113889120424,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(101,8,1,'140x80cm / Cadre Doré / Non','0085-140X80-CD',NULL,786.00,NULL,0,1,55113889153192,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(102,8,1,'140x80cm / Cadre Doré / Oui','0085-140X80-CD-OUI',NULL,1186.00,NULL,0,1,55113889185960,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(103,8,1,'140x80cm / Cadre Blanc / Non','0085-140X80-CB',NULL,786.00,NULL,0,1,55113889218728,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37'),(104,8,1,'140x80cm / Cadre Blanc / Oui','0085-140X80-CB-OUI',NULL,1186.00,NULL,0,1,55113889251496,NULL,'2026-02-21 13:51:37',1,0,'2026-02-21 13:51:37','2026-02-21 13:51:37');
-/*!40000 ALTER TABLE `product_variants` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `products` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned DEFAULT NULL,
-  `category_id` bigint unsigned DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `price` decimal(10,2) DEFAULT NULL,
-  `compare_price` decimal(10,2) DEFAULT NULL,
-  `sku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `quantity` int DEFAULT '0',
-  `custom_product` int DEFAULT '0',
-  `track_inventory` tinyint(1) DEFAULT '1',
-  `is_active` tinyint(1) DEFAULT '1',
-  `shopify_product_id` bigint unsigned DEFAULT NULL,
-  `shopify_handle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shopify_synced_at` timestamp NULL DEFAULT NULL,
-  `deleted` int DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `products`
---
-
-LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (4,1,NULL,'Tableau luxe Éclipse Dorée - Cadre américain','tableau-luxe-eclipse-doree-cadre-americain','\n\n\n \n\n\n\n\n\n\nToile :\n\nNous utilisons des toiles premium de (200 m/g²) en 100% Cotton résistantes à l’eau et aux rayures, prêtes à durer des générations.\n\n\n\n \n\n\nStructure :\n\nLe châssis est indéformable et peut être accroché immédiatement.\n\n\n\n \n\n',375.00,NULL,'0032-100X60',1,0,1,1,8910631010472,NULL,NULL,0,'2026-02-20 18:08:12',NULL),(6,1,NULL,'Nuage tableau décoratif Gold - Cadre américain','nuage-tableau-decoratif-gold-cadre-americain','\n\n\n \n\n\n\n\n\n\nToile :\n\nNous utilisons des toiles premium de (200 m/g²) en 100% Cotton résistantes à l’eau et aux rayures, prêtes à durer des générations.\n\n\n\n \n\n\nStructure :\n\nLe châssis est indéformable et peut être accroché immédiatement.\n\n\n\n \n\n',240.00,NULL,'0010-70X45',1,0,1,1,8910633566376,NULL,NULL,0,'2026-02-20 20:49:51',NULL),(7,1,NULL,'Arbre doré reflect realistic - Cadre américain','arbre-dore-reflect-realistic','\n \n\n\n\n\n\n\nToile :\n\nNous utilisons des toiles premium de (200 m/g²) en 100% Cotton résistantes à l’eau et aux rayures, prêtes à durer des générations.\n\n\n\n \n\n\nStructure :\n\nLe châssis est indéformable et peut être accroché immédiatement.\n\n\n\n \n',240.00,NULL,'0039-70X45',1,0,1,1,8910632321192,NULL,NULL,0,'2026-02-20 20:49:53',NULL),(8,1,NULL,'jazz saxophone Abstrait','jazz-saxophone-abstrait','\n\n\n \n\n\n\n\n\n\nToile :\n\nNous utilisons des toiles premium de (200 m/g²) en 100% Cotton résistantes à l’eau et aux rayures, prêtes à durer des générations.\n\n\n\n \n\n\nStructure :\n\nLe châssis est indéformable et peut être accroché immédiatement.\n\n\n\n \n\n',883.00,NULL,'0085-120X70-CB-OUI',1,0,1,1,9262668218536,NULL,NULL,0,'2026-02-21 13:51:37',NULL),(12,1,1,'product 1','product-1','test',22.00,NULL,'ull22',2,1,1,1,NULL,NULL,NULL,0,NULL,NULL),(13,1,3,'product 1','product-1',NULL,6666.00,NULL,'u48484',3,1,1,1,NULL,NULL,NULL,0,NULL,NULL);
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `role_has_permissions`
 --
 
@@ -794,7 +523,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'admin','web','2026-02-26 23:32:33','2026-02-26 23:32:38'),(2,'participant','web','2026-02-26 23:34:42','2026-02-26 23:34:46'),(3,'order_handler','web','2026-02-26 23:35:09','2026-02-26 23:35:14');
+INSERT INTO `roles` VALUES (1,'admin','web','2026-02-26 23:32:33','2026-02-26 23:32:38'),(2,'participant','web','2026-02-26 23:34:42','2026-02-26 23:34:46');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -854,37 +583,8 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('4DKZPB6qOFzOBeMzZMTyWaSXW6gP7kHBiTUI2Ic6',32,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiT0tsRUxTdmJocmdWeXh6bllnemZzYjFZbjlzQkxlMWg0aWgzRHZxZCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjI1OiJodHRwczovL2V2ZW50aWZ5LnRlc3QvcmR2IjtzOjU6InJvdXRlIjtzOjk6InJkdi5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjMyO30=',1778107601),('DO7gfgf0vGM5ClefHNOCMSlTwPFOYMIuYMnh4YtA',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiU2RodmFLcEZ6NkNtc0hmTlV3dUN5cmF3VEc0MndjT3hMZ2loTVZReiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjI1OiJodHRwczovL2V2ZW50aWZ5LnRlc3QvcmR2IjtzOjU6InJvdXRlIjtzOjk6InJkdi5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1778105004),('foZebEvwLol6Vsf499BqFSqmu8u56pRhj8Y4Zt2l',2,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoibE9oZ3RjckRHemZaNGRRdlMyN3RyQ3c4Y2k3ZUhmbXVqeG5CUjh6cSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vZXZlbnRpZnkudGVzdCI7czo1OiJyb3V0ZSI7czo1OiJpbmRleCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==',1778103277),('HnpuvfIgKmRXxRVjnQzQcOJnBD3Fq7LKdt2Nbz8k',31,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoidExSVWNWMGRla1h1eWVZWGw4MXhPS1p1azdLVlhSMEhBRklaZXFUZSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjIxOiJodHRwczovL2V2ZW50aWZ5LnRlc3QiO3M6NToicm91dGUiO3M6NToiaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMTt9',1778106975),('jOpeRTJIfLSymHaw173C9DXrAgR34aFjcDIVpTBW',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVHlKeUxLanczTzRCR0dSTHJXRHdWZWxtSEE1N01GblBKR2xmbXBqNyI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czoyMToiaHR0cHM6Ly9ldmVudGlmeS50ZXN0IjtzOjU6InJvdXRlIjtzOjU6ImluZGV4Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1778103094),('yx14xmCu7Qapv5ZISD3Tpyj7rDAGyzz0nSc44iG0',30,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiOVhGTkRYTFBOYml5elVmTTlKSFpkTnh5clB2TEtTb1BPNzRXbGhUeiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjI1OiJodHRwczovL2V2ZW50aWZ5LnRlc3QvcmR2IjtzOjU6InJvdXRlIjtzOjk6InJkdi5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjMwO30=',1778103495);
+INSERT INTO `sessions` VALUES ('m3zNkgCBbm5mdxW7ZiNv8bbbY0UwoTPPclho2I0i',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYXVUTGlwNTJpeEJlNlBxVktBYThxbXRGcGZyQ2IzVzhveEYyWWF2dyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjI1OiJodHRwczovL2V2ZW50aWZ5LnRlc3QvcmR2IjtzOjU6InJvdXRlIjtzOjk6InJkdi5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1779099053);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `shops`
---
-
-DROP TABLE IF EXISTS `shops`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `shops` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `shop_domain` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access_token` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `shops_shop_domain_unique` (`shop_domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `shops`
---
-
-LOCK TABLES `shops` WRITE;
-/*!40000 ALTER TABLE `shops` DISABLE KEYS */;
-INSERT INTO `shops` VALUES (1,'eqpca6-z4.myshopify.com','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',1,'2026-02-25 14:58:01','2026-02-25 16:57:23');
-/*!40000 ALTER TABLE `shops` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -922,7 +622,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Morjani','Mounir','Admin',NULL,NULL,'mounirmorjani@gmail.com','0666666666',1,'2026-02-04 19:44:17',NULL,'$2y$12$lXKsICYCBFvjkerbk1NKXeGPVSRGh/4dk9Wssv.83DJPUl6Qto4eK',NULL,'htS0lqNF7W85mpWjt4xVhkzmfVSayC8yYicofEkiFDJW2vXye4QwzqMJvqva','2026-02-03 19:37:11','2026-02-03 19:37:11'),(2,'Abdo','Mohamed','Mohamed',NULL,NULL,'mohamed@example.com',NULL,3,NULL,NULL,'$2y$12$wpN5Px8PRNTw9pnube5GuunsIW0IQsaSNezC9Qxpa8gSWyUw4F4ie',NULL,NULL,'2026-02-24 22:42:08','2026-02-24 22:42:08'),(3,NULL,NULL,NULL,NULL,NULL,'elboutifatimazahra555@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$sIQ2g3O3eQaq96/aVok5nuugjZP7gmDdvol5isW5wNevEAx6uC71W',NULL,NULL,'2026-03-09 12:33:05','2026-03-09 12:33:05'),(4,'El bouti','Fatima',NULL,2,'fes','elboutifatimazahra555@gmail.comj',NULL,NULL,NULL,NULL,'$2y$12$4rre3WFaX5H3Xk7wRubKLOYp0cOe//ymyLhxknwe34TTcVWSgv2QS',NULL,NULL,'2026-03-09 12:33:53','2026-03-09 12:33:53'),(5,'el bouti','imane','testtesttt',3,'snckdjsn','imane@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$En2P23GOKf793Ve9WFM.Wunqh.w6Nl71qhSmzPiH3Gmg99T9nZbNK',NULL,NULL,'2026-03-09 12:52:48','2026-03-09 12:52:48'),(6,'El bouti','Fatima','El bouti',5,'fes','elboutifatimazahr@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$HA5OFEvvvPqwD7E5kwpfMu25CoJ3pSVWJc16vBaHOCh53fSDWxkTC',NULL,NULL,'2026-03-09 12:56:07','2026-03-09 12:56:07'),(7,'karimi','amal','karimi',4,'fes','karimi@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$SvXvdjbWGkgbLNs0hFEWY.lbnYM9d87j.wav3pc5xsGZtEjQ41C8e',NULL,NULL,'2026-03-09 15:38:24','2026-03-09 15:38:24'),(9,'bakali','mohamed','bakali',2,'casa','mohamed@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$W2OjPHOGhLYsCwxJiaNKKOxElPHeIL141BA87Io5aE/XgqwbxFIyK',NULL,NULL,'2026-03-09 16:56:36','2026-03-09 16:56:36'),(13,'gbggr','gtrgkr,gk','gbggr',3,'hb,rkg,bhkrh','thtrkg@gebgke.thtr',NULL,NULL,NULL,NULL,'$2y$12$3d4duY6g1EnaGrRWkMmkK.e8RBRKCa0CkF0gMK4NBoWmViiJzQDt2',NULL,NULL,'2026-03-09 17:25:52','2026-03-09 17:25:52'),(14,'ferfref','rfreref','ferfref',5,'ferer','vfevrfv@vrvrv.rvrv',NULL,NULL,NULL,NULL,'$2y$12$YXAHBZl4gi302UHX8V6.Uuiof6GRMtkXbVcq7d/arqQ5PWBNsXWTu',NULL,NULL,'2026-03-09 17:48:56','2026-03-09 17:48:56'),(15,'kasimi','yassin','kasimi',4,'casa','kasimi@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$bEyfCbSSvY5JtEWQ3cG3IecYhCetcfcPK0AbjGbUCXAFgNzMMx/ue',NULL,NULL,'2026-03-10 14:07:25','2026-03-10 14:07:25'),(16,'kasimi','kamal','kasimi',4,'casa','kamal@gmail.com',NULL,2,NULL,NULL,'$2y$12$FTO808pMCjxHa9i3p0kFwufJq5x/Xw/.MxznOqWkNvjeR8eIe87gq',NULL,NULL,'2026-03-10 14:09:31','2026-03-10 14:09:31'),(26,'ekljlez','fjdjnjknkcd','ekljlez',4,'dnldnldkn','dkkf@bdjkbk.dndf',NULL,2,NULL,NULL,'$2y$12$dzN0hwN3WpzGO53ITONfP.rV/6mcWSW.ZSgrzRkXOUM7ME9PnEytG',NULL,NULL,'2026-03-10 14:58:15','2026-03-10 14:58:15'),(27,'kasim','ahmad','kasim',4,'dsnk,s','ahmad@gmail.com',NULL,2,NULL,NULL,'$2y$12$mwbdHHKBYvVMGgyd3B2rD.naRy1ezpZdjl8Mu4g05gt..h2hU36rW',NULL,NULL,'2026-03-10 15:01:25','2026-03-10 15:01:25'),(28,'hachimi','ahlam','hachimi',3,'fes','hachimi@gmail.com',NULL,2,NULL,NULL,'$2y$12$pZ8CNH7OR8BFSnxaTZbCmOIqMxrP8QeaTNdWhVJvx1BL.12X1F6Gi',NULL,NULL,'2026-03-12 17:33:40','2026-03-12 17:33:40'),(29,'ttll','llll','ttll',3,'fes','hachimitest@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$PoImTkYVlYp9tXh0FXR84e0b0Sjnp2nCtm9aFquNGGnUCkvE1t7aC',NULL,NULL,'2026-03-24 20:45:24','2026-03-24 20:45:24'),(30,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant@gmail.com','0693942186',NULL,NULL,NULL,'$2y$12$FtbYC6o3Dk9fQJjiGEyWRu7pU20im/hflPLmXjiHu2KZlSHPlL3Zu',NULL,NULL,'2026-05-06 20:37:54','2026-05-06 20:37:54'),(31,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant2@gmail.com','0693942186',NULL,NULL,NULL,'$2y$12$cj5JkieovylWLLDIcuiyGO4GNl03MvvC2j/4BJgCTZHSBG2chP7sC',NULL,NULL,'2026-05-06 20:49:15','2026-05-06 20:49:15'),(32,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant3@gmail.com','0693942186',2,NULL,NULL,'$2y$12$nCPcDaQH7EMWAQ1Hf6kJouVu9ZThnCtQr4O/TQvSWBpENvdGwMjWO',NULL,NULL,'2026-05-06 20:52:05','2026-05-06 20:52:05');
+INSERT INTO `users` VALUES (1,'Morjani','Mounir','Admin',NULL,NULL,'mounirmorjani@gmail.com','0666666666',1,'2026-02-04 19:44:17',NULL,'$2y$12$lXKsICYCBFvjkerbk1NKXeGPVSRGh/4dk9Wssv.83DJPUl6Qto4eK',NULL,'uVRy00ULclFcFcBPawVnWIyEjQBBsVZ3p0ETlF8rUrI6Ot6kX9V1iteYdc6Q','2026-02-03 19:37:11','2026-02-03 19:37:11'),(2,'Abdo','Mohamed','Mohamed',NULL,NULL,'mohamed@example.com',NULL,3,NULL,NULL,'$2y$12$wpN5Px8PRNTw9pnube5GuunsIW0IQsaSNezC9Qxpa8gSWyUw4F4ie',NULL,NULL,'2026-02-24 22:42:08','2026-02-24 22:42:08'),(3,NULL,NULL,NULL,NULL,NULL,'elboutifatimazahra555@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$sIQ2g3O3eQaq96/aVok5nuugjZP7gmDdvol5isW5wNevEAx6uC71W',NULL,NULL,'2026-03-09 12:33:05','2026-03-09 12:33:05'),(4,'El bouti','Fatima',NULL,2,'fes','elboutifatimazahra555@gmail.comj',NULL,NULL,NULL,NULL,'$2y$12$4rre3WFaX5H3Xk7wRubKLOYp0cOe//ymyLhxknwe34TTcVWSgv2QS',NULL,NULL,'2026-03-09 12:33:53','2026-03-09 12:33:53'),(5,'el bouti','imane','testtesttt',3,'snckdjsn','imane@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$En2P23GOKf793Ve9WFM.Wunqh.w6Nl71qhSmzPiH3Gmg99T9nZbNK',NULL,NULL,'2026-03-09 12:52:48','2026-03-09 12:52:48'),(6,'El bouti','Fatima','El bouti',5,'fes','elboutifatimazahr@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$HA5OFEvvvPqwD7E5kwpfMu25CoJ3pSVWJc16vBaHOCh53fSDWxkTC',NULL,NULL,'2026-03-09 12:56:07','2026-03-09 12:56:07'),(7,'karimi','amal','karimi',4,'fes','karimi@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$SvXvdjbWGkgbLNs0hFEWY.lbnYM9d87j.wav3pc5xsGZtEjQ41C8e',NULL,NULL,'2026-03-09 15:38:24','2026-03-09 15:38:24'),(9,'bakali','mohamed','bakali',2,'casa','mohamed@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$W2OjPHOGhLYsCwxJiaNKKOxElPHeIL141BA87Io5aE/XgqwbxFIyK',NULL,NULL,'2026-03-09 16:56:36','2026-03-09 16:56:36'),(13,'gbggr','gtrgkr,gk','gbggr',3,'hb,rkg,bhkrh','thtrkg@gebgke.thtr',NULL,NULL,NULL,NULL,'$2y$12$3d4duY6g1EnaGrRWkMmkK.e8RBRKCa0CkF0gMK4NBoWmViiJzQDt2',NULL,NULL,'2026-03-09 17:25:52','2026-03-09 17:25:52'),(14,'ferfref','rfreref','ferfref',5,'ferer','vfevrfv@vrvrv.rvrv',NULL,NULL,NULL,NULL,'$2y$12$YXAHBZl4gi302UHX8V6.Uuiof6GRMtkXbVcq7d/arqQ5PWBNsXWTu',NULL,NULL,'2026-03-09 17:48:56','2026-03-09 17:48:56'),(15,'kasimi','yassin','kasimi',4,'casa','kasimi@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$bEyfCbSSvY5JtEWQ3cG3IecYhCetcfcPK0AbjGbUCXAFgNzMMx/ue',NULL,NULL,'2026-03-10 14:07:25','2026-03-10 14:07:25'),(16,'kasimi','kamal','kasimi',4,'casa','kamal@gmail.com',NULL,2,NULL,NULL,'$2y$12$FTO808pMCjxHa9i3p0kFwufJq5x/Xw/.MxznOqWkNvjeR8eIe87gq',NULL,NULL,'2026-03-10 14:09:31','2026-03-10 14:09:31'),(26,'ekljlez','fjdjnjknkcd','ekljlez',4,'dnldnldkn','dkkf@bdjkbk.dndf',NULL,2,NULL,NULL,'$2y$12$dzN0hwN3WpzGO53ITONfP.rV/6mcWSW.ZSgrzRkXOUM7ME9PnEytG',NULL,NULL,'2026-03-10 14:58:15','2026-03-10 14:58:15'),(27,'kasim','ahmad','kasim',4,'dsnk,s','ahmad@gmail.com',NULL,2,NULL,NULL,'$2y$12$mwbdHHKBYvVMGgyd3B2rD.naRy1ezpZdjl8Mu4g05gt..h2hU36rW',NULL,NULL,'2026-03-10 15:01:25','2026-03-10 15:01:25'),(28,'hachimi','ahlam','hachimi',3,'fes','hachimi@gmail.com',NULL,2,NULL,NULL,'$2y$12$pZ8CNH7OR8BFSnxaTZbCmOIqMxrP8QeaTNdWhVJvx1BL.12X1F6Gi',NULL,NULL,'2026-03-12 17:33:40','2026-03-12 17:33:40'),(29,'ttll','llll','ttll',3,'fes','hachimitest@gmail.com',NULL,NULL,NULL,NULL,'$2y$12$PoImTkYVlYp9tXh0FXR84e0b0Sjnp2nCtm9aFquNGGnUCkvE1t7aC',NULL,NULL,'2026-03-24 20:45:24','2026-03-24 20:45:24'),(30,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant@gmail.com','0693942186',NULL,NULL,NULL,'$2y$12$FtbYC6o3Dk9fQJjiGEyWRu7pU20im/hflPLmXjiHu2KZlSHPlL3Zu',NULL,NULL,'2026-05-06 20:37:54','2026-05-06 20:37:54'),(31,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant2@gmail.com','0693942186',NULL,NULL,NULL,'$2y$12$cj5JkieovylWLLDIcuiyGO4GNl03MvvC2j/4BJgCTZHSBG2chP7sC',NULL,NULL,'2026-05-06 20:49:15','2026-05-06 20:49:15'),(32,'Morjani','Mounir','Morjani',2,'Marrakech','mounirmorjani+participant3@gmail.com','0693942186',2,NULL,NULL,'$2y$12$nCPcDaQH7EMWAQ1Hf6kJouVu9ZThnCtQr4O/TQvSWBpENvdGwMjWO',NULL,NULL,'2026-05-06 20:52:05','2026-05-06 20:52:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -935,4 +635,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-06 23:49:30
+-- Dump completed on 2026-05-18 11:16:27

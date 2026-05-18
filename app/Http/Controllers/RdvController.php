@@ -68,7 +68,7 @@ class RdvController extends RootController
                 if($liAnnuler === '' && $liConfirm === '') {
                     $row->actions = '';
                 } else {
-                     
+
 
                 $row->actions = '<div class="btn-group">
                         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,11 +81,11 @@ class RdvController extends RootController
                       </div>';
 
                 }
-            
+
             });
 
             return response()->json($result);
-            
+
 
         } catch (Throwable $e) {
 
@@ -155,5 +155,5 @@ class RdvController extends RootController
         $event->update($request->only(['nom', 'date', 'description', 'inscription_ouverte']));
         return redirect()->route('config-event', $id_event)->with('success', 'Event updated successfully');
     }
-    
+
 }

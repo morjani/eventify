@@ -501,19 +501,3 @@ $.ajaxSetup({
     }
 });
 
-document.getElementById('logout').addEventListener('click', function(e) {
-    e.preventDefault();
-
-    fetch("{{ route('logout') }}", {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            'Accept': 'application/json',
-        },
-    })
-        .then(() => {
-            // Redirection vers la page login après logout
-            window.location.href = '/login';
-        })
-        .catch(err => console.error(err));
-});

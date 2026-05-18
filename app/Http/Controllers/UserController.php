@@ -16,13 +16,13 @@ class UserController extends Controller
             $validated = $request->validate([
                 'last_name'=>'required|string|min:3|max:50',
                 'first_name'=>'required|string|min:3|max:50',
-                'id_pays' => 'required|exists:pays,id',                                
+                'id_pays' => 'required|exists:pays,id',
                 'ville'=>'required|string|min:3|max:60',
                 'email' => 'required|email|max:255|unique:users,email',
                 'password'=>'required|string|min:3|max:255|confirmed',
                 'phone'=>'required|string|min:3|max:10',
 //Updated upstream
-                
+
             ], [
                 'email.unique' => 'Cet email est déjà utilisé.',
                 'password.confirmed' => 'Les mots de passe ne correspondent pas.',
@@ -30,7 +30,7 @@ class UserController extends Controller
                 'email' => 'Veuillez entrer une adresse email valide.',
                 'min' => 'Le champ :attribute doit contenir au moins :min caractères.',
                 'max' => 'Le champ :attribute ne peut pas dépasser :max caractères.',
-                
+
 //Stashed changes
             ]);
             $user = Users::create(
@@ -47,7 +47,7 @@ class UserController extends Controller
                 return response()->json([
                     'success' => true,
                     'message' => 'User saved successfully',
-                    
+
                 ]);
         }catch (ValidationException $e) {
             return response()->json([
@@ -62,7 +62,7 @@ class UserController extends Controller
                 'message' => 'Something went wrong, please try again',
             ], 500);
         }
-        
+
     }
 }
 
